@@ -19,6 +19,7 @@ SRCS	= 	src/main.c 							\
 			src/my/my_putchar.c 				\
 			src/my/my_putstr.c					\
 			src/my/convert.c					\
+			src/my/my_revstr.c 					\
 			src/menu/init_start.c 				\
 			src/menu/starting_menu.c			\
 			src/menu/pause_menu.c 				\
