@@ -38,6 +38,7 @@ void strt_menu_event(utils_t *utils)
         && sfMouse_getPositionRenderWindow(utils->window).y <= 700) {
         utils->strt_menu = false;
         utils->settings = true;
+        utils->from_strt = true;
         }
     event_bis(utils);
 }

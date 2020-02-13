@@ -35,6 +35,7 @@ typedef struct settings_s {
     sfSprite *minus;
     sfTexture *quit_text;
     sfSprite *quit;
+    float volume;
 }settings_t;
 
 typedef struct pause_menu {

@@ -20,6 +20,7 @@ int init_utils(utils_t *utils)
     utils->death = false;
     utils->pause = false;
     utils->settings = false;
+    utils->from_strt = false;
     utils->font = sfFont_createFromFile("image/police.otf");
     if (!utils->font)
         return 1;

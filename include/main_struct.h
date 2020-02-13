@@ -34,6 +34,7 @@ typedef struct utils {
     bool death;
     bool pause;
     bool settings;
+    bool from_strt;
 }utils_t;
 
 #endif /* !MAIN_STRUCT */

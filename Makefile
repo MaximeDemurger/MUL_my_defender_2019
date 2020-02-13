@@ -18,18 +18,16 @@ SRCS	= 	src/main.c 							\
 			src/capture_event.c 				\
 			src/my/my_putchar.c 				\
 			src/my/my_putstr.c					\
-			src/my/my_strlen.c					\
-			src/my/my_strdup.c					\
+			src/my/convert.c					\
 			src/menu/init_start.c 				\
 			src/menu/starting_menu.c			\
 			src/menu/pause_menu.c 				\
 			src/menu/init_death.c 				\
 			src/menu/death_menu.c 				\
 			src/menu/init_settings.c 			\
+			src/menu/settings_menu.c 			\
 			src/destroy/destroy_game.c 			\
 			src/destroy/destroy_menu.c 			\
-			src/game/started_gamePlay.c			\
-			src/game/checking_map.c				\
 
 OBJS	= $(SRCS:.c=.o)
 
