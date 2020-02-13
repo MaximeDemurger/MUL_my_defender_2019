@@ -19,6 +19,7 @@ int init_utils(utils_t *utils)
     utils->strt_menu = true;
     utils->death = false;
     utils->pause = false;
+    utils->settings = false;
     utils->font = sfFont_createFromFile("image/police.otf");
     if (!utils->font)
         return 1;
@@ -31,12 +32,13 @@ int init_game(game_t *game)
     game->pause = malloc(sizeof(pausemenu_t));
     game->death = malloc(sizeof(deathmenu_t));
     game->utils = malloc(sizeof(utils_t));
+    game->settings = malloc(sizeof(settings_t));
     if (!game->start || !game->pause || !game->death
-        || !game->utils) {
+        || !game->utils || !game->settings) {
         return 1;
     }
     if (init_utils(game->utils) || init_start(game->start, game->pause)
-        || init_death(game->death)){
+        || init_death(game->death) || init_settings(game->settings)) {
         return 1;
         }
     return 0;
@@ -55,10 +57,11 @@ int main(int ac, char **av)
         destroy_game(game);
         return 84;
     }
-    game->utils->window = sfRenderWindow_create(view_mode, "MY RUNNER",
+    game->utils->window = sfRenderWindow_create(view_mode, "MY DEFENDER",
                     sfResize | sfClose, NULL);
     sfRenderWindow_setFramerateLimit(game->utils->window, 30);
     if (!game->utils->window) return 84;
-    open_window(game->utils, game);
+    open_window(game->utils, game, av);
     destroy_game(game);
+    return 0;
 }

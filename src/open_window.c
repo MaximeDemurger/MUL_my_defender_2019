@@ -15,9 +15,11 @@ void check_utils(utils_t *utils, game_t *game)
         starting_menu(utils, game->start);
     if (utils->death == true)
         death_menu(utils, game->death);
+    if (utils->settings == true)
+        settings_menu(utils, game->settings);
 }
 
-void open_window(utils_t *utils, game_t *game)
+void open_window(utils_t *utils, game_t *game, char **av)
 {
     while (sfRenderWindow_isOpen(utils->window)) {
         check_utils(utils, game);

@@ -8,6 +8,7 @@
 #ifndef PROTO
 #define PROTO
 
+#include <unistd.h>
 #include "SFML/Window.h"
 #include "SFML/Graphics.h"
 #include "SFML/System/Export.h"
@@ -33,6 +34,7 @@ void my_putstr(char const *);
 void my_putchar(char);
 
 /* MAIN GAME */
-void open_window(utils_t *, game_t *);
+void open_window(utils_t *, game_t *, char **av);
+void capture_events(utils_t *, game_t *);
 
 #endif /* !PROTO */

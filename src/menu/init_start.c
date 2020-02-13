@@ -30,25 +30,35 @@ int init_pause(pausemenu_t *pause)
     return 0;
 }
 
-int init_start(strtmenu_t *start, pausemenu_t *pause)
+void set_start(strtmenu_t *start)
 {
     sfVector2f play_pos = {850, 400};
-    sfVector2f quit_pos = {850, 600};
+    sfVector2f set_pos = {850, 600};
+    sfVector2f quit_pos = {850, 800};
+ 
+    sfSprite_setTexture(start->background, start->background_text, sfTrue);
+    sfSprite_setTexture(start->play, start->play_text, sfTrue);
+    sfSprite_setTexture(start->quit, start->quit_text, sfTrue);
+    sfSprite_setTexture(start->settings, start->set_text, sfTrue);
+    sfSprite_setPosition(start->play, play_pos);
+    sfSprite_setPosition(start->quit, quit_pos);
+    sfSprite_setPosition(start->settings, set_pos);   
+}
 
+int init_start(strtmenu_t *start, pausemenu_t *pause)
+{
     start->background_text = sfTexture_createFromFile("image/war.jpg", NULL);
     start->background = sfSprite_create();
     start->play_text = sfTexture_createFromFile("image/start.png", NULL);
     start->play = sfSprite_create();
     start->quit_text = sfTexture_createFromFile("image/quit.png", NULL);
     start->quit = sfSprite_create();
+    start->set_text = sfTexture_createFromFile("image/settings.png", NULL);
+    start->settings = sfSprite_create();
     if (!start->background_text || !start->background ||
-        !start->play_text || !start->play ||
-        !start->quit_text || !start->quit)
+        !start->play_text || !start->play || !start->set_text ||
+        !start->quit_text || !start->quit || !start->settings)
         return 1;
-    sfSprite_setTexture(start->background, start->background_text, sfTrue);
-    sfSprite_setTexture(start->play, start->play_text, sfTrue);
-    sfSprite_setTexture(start->quit, start->quit_text, sfTrue);
-    sfSprite_setPosition(start->play, play_pos);
-    sfSprite_setPosition(start->quit, quit_pos);
+    set_start(start);
     return init_pause(pause);
 }

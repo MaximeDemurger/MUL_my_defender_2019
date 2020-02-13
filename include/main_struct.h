@@ -19,6 +19,7 @@ typedef struct game_s {
     struct pause_menu *pause;
     struct death_menu *death;
     struct utils *utils;
+    struct settings_s *settings;
 }game_t;
 
 typedef struct utils {
@@ -32,6 +33,7 @@ typedef struct utils {
     bool strt_menu;
     bool death;
     bool pause;
+    bool settings;
 }utils_t;
 
 #endif /* !MAIN_STRUCT */

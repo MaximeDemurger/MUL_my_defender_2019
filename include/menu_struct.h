@@ -22,7 +22,20 @@ typedef struct start_menu {
     sfSprite *play;
     sfTexture *quit_text;
     sfSprite *quit;
+    sfTexture *set_text;
+    sfSprite *settings;
 }strtmenu_t;
+
+typedef struct settings_s {
+    sfTexture *bg_text;
+    sfSprite *bg;
+    sfTexture *plus_text;
+    sfSprite *plus;
+    sfTexture *minus_text;
+    sfSprite *minus;
+    sfTexture *quit_text;
+    sfSprite *quit;
+}settings_t;
 
 typedef struct pause_menu {
     sfTexture *background_text;
