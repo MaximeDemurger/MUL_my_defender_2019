@@ -29,6 +29,8 @@ typedef struct utils {
     sfEvent event;
     sfClock *clock;
     sfMusic *song;
+    sfTexture *hoover_text;
+    sfSprite *hoover;
     char **map;
     int life;
     int score;

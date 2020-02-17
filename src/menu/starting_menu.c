@@ -10,7 +10,7 @@
 void event_bis(utils_t *utils)
 {
     if (utils->event.type == sfEvtMouseButtonPressed
-        && sfMouse_getPositionRenderWindow(utils->window).x >= 800
+        && sfMouse_getPositionRenderWindow(utils->window).x >= 850
         && sfMouse_getPositionRenderWindow(utils->window).x <= 1100
         && sfMouse_getPositionRenderWindow(utils->window).y >= 800
         && sfMouse_getPositionRenderWindow(utils->window).y <= 900) {
@@ -43,6 +43,41 @@ void strt_menu_event(utils_t *utils)
     event_bis(utils);
 }
 
+void hoover_button_bis(utils_t *utils)
+{
+    sfVector2f pos3 = {825, 390};
+
+    if (sfMouse_getPositionRenderWindow(utils->window).x >= 850
+        && sfMouse_getPositionRenderWindow(utils->window).x <= 1100
+        && sfMouse_getPositionRenderWindow(utils->window).y >= 400
+        && sfMouse_getPositionRenderWindow(utils->window).y <= 500) {
+        sfSprite_setPosition(utils->hoover, pos3);
+        sfRenderWindow_drawSprite(utils->window, utils->hoover, NULL);
+    }
+}
+
+void hoover_button(utils_t *utils)
+{
+    sfVector2f pos1 = {825, 790};
+    sfVector2f pos2 = {825, 590};
+
+    if (sfMouse_getPositionRenderWindow(utils->window).x >= 850
+        && sfMouse_getPositionRenderWindow(utils->window).x <= 1100
+        && sfMouse_getPositionRenderWindow(utils->window).y >= 800
+        && sfMouse_getPositionRenderWindow(utils->window).y <= 900) {
+        sfSprite_setPosition(utils->hoover, pos1);
+        sfRenderWindow_drawSprite(utils->window, utils->hoover, NULL);
+    }
+    if (sfMouse_getPositionRenderWindow(utils->window).x >= 850
+        && sfMouse_getPositionRenderWindow(utils->window).x <= 1100
+        && sfMouse_getPositionRenderWindow(utils->window).y >= 600
+        && sfMouse_getPositionRenderWindow(utils->window).y <= 700) {
+        sfSprite_setPosition(utils->hoover, pos2);
+        sfRenderWindow_drawSprite(utils->window, utils->hoover, NULL);
+    }
+    hoover_button_bis(utils);
+}
+
 void starting_menu(utils_t *utils, strtmenu_t *start)
 {
     sfText *text = sfText_create();
@@ -58,6 +93,7 @@ void starting_menu(utils_t *utils, strtmenu_t *start)
             strt_menu_event(utils);
         }
         sfRenderWindow_drawSprite(utils->window, start->background, NULL);
+        hoover_button(utils);
         sfRenderWindow_drawSprite(utils->window, start->play, NULL);
         sfRenderWindow_drawSprite(utils->window, start->quit, NULL);
         sfRenderWindow_drawSprite(utils->window, start->settings, NULL);

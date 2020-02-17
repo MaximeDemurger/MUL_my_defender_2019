@@ -23,8 +23,11 @@ int init_utils(utils_t *utils)
     utils->from_strt = false;
     utils->song = sfMusic_createFromFile("image/song.ogg");
     utils->font = sfFont_createFromFile("image/police.otf");
-    if (!utils->font || !utils->song)
+    utils->hoover_text = sfTexture_createFromFile("image/hoover.png", NULL);
+    utils->hoover = sfSprite_create();
+    if (!utils->font || !utils->song || !utils->hoover || !utils->hoover_text)
         return 1;
+    sfSprite_setTexture(utils->hoover, utils->hoover_text, sfTrue);
     return 0;
 }
 
