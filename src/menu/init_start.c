@@ -10,13 +10,16 @@
 void set_pause(pausemenu_t *pause)
 {
     sfVector2f play_pos = {850, 400};
-    sfVector2f set_pos = {850, 600};
+    sfVector2f m_menu_pos = {500, 600};
+    sfVector2f set_pos = {1200, 600};
     sfVector2f quit_pos = {850, 800};
 
     sfSprite_setTexture(pause->background, pause->background_text, sfTrue);
     sfSprite_setTexture(pause->play, pause->play_text, sfTrue);
     sfSprite_setTexture(pause->quit, pause->quit_text, sfTrue);
     sfSprite_setTexture(pause->settings, pause->set_text, sfTrue);
+    sfSprite_setTexture(pause->m_menu, pause->m_menu_text, sfTrue);
+    sfSprite_setPosition(pause->m_menu, m_menu_pos);
     sfSprite_setPosition(pause->play, play_pos);
     sfSprite_setPosition(pause->quit, quit_pos);
     sfSprite_setPosition(pause->settings, set_pos);
@@ -33,9 +36,12 @@ int init_pause(pausemenu_t *pause)
     pause->quit = sfSprite_create();
     pause->set_text = sfTexture_createFromFile("image/settings.png", NULL);
     pause->settings = sfSprite_create();
+    pause->m_menu_text = sfTexture_createFromFile("image/Mainmenu.png", NULL);
+    pause->m_menu = sfSprite_create();
     if (!pause->background_text || !pause->background || !pause->settings ||
         !pause->play_text || !pause->play || !pause->set_text ||
-        !pause->quit_text || !pause->quit)
+        !pause->quit_text || !pause->quit || !pause->m_menu_text
+        || !pause->m_menu)
         return 1;
     set_pause(pause);
     return 0;
