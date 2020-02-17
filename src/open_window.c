@@ -19,15 +19,19 @@ void check_utils(utils_t *utils, game_t *game)
         settings_menu(utils, game->settings);
 }
 
-void open_window(utils_t *utils, game_t *game, char **av)
+int open_window(utils_t *utils, game_t *game, char **av)
 {
-    // init_map(utils->map_pars);
+    utils->map_pars = malloc(sizeof(map_t));
+
+    init_map(utils->map_pars, av);
     sfMusic_play(utils->song);
     while (sfRenderWindow_isOpen(utils->window)) {
         check_utils(utils, game);
-        map_parsing(utils, av);
+        if (start_game(utils, av) == 84)
+            return -1;
         capture_events(utils, game);
         sfRenderWindow_display(utils->window);
         sfRenderWindow_clear(utils->window, sfBlack);
     }
+    return 0;
 }

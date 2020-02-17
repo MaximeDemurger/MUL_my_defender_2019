@@ -10,7 +10,7 @@ int checking_map(char const *str)
     int i = 0;
 
     while (str[i] != 0) {
-        if (str[i] != 'O' || str[i] != 'X' || str[i] != '\n')
+        if (str[i] != 'O' && str[i] != 'X' && str[i] != '\n' && str[i] != '1')
             return 1;
         i++;
     }

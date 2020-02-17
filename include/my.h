@@ -45,12 +45,15 @@ char *my_strdup(char const *str);
 char *get_next_line(int fd);
 
 /* MAIN GAME */
-void open_window(utils_t *, game_t *, char **av);
+int open_window(utils_t *, game_t *, char **av);
 void capture_events(utils_t *, game_t *);
+int start_game(utils_t *utils, char **av);
 
 /* MAP GAME */
-void init_map(map_t *map);
-int map_parsing(utils_t *utils, char **av);
+char **gettingMap_fromFile(char **av);
+void init_map(map_t *map, char **av);
+void printing_map(char **tab, utils_t *utils);
+char **normal_map(void);
 int checking_map(char const *str);
 
 #endif /* !PROTO */

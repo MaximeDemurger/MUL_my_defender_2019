@@ -66,7 +66,11 @@ int main(int ac, char **av)
                     sfResize | sfClose, NULL);
     sfRenderWindow_setFramerateLimit(game->utils->window, 30);
     if (!game->utils->window) return 84;
-    open_window(game->utils, game, av);
+    if (open_window(game->utils, game, av) == -1) {
+        my_putstr("Wrong Map");
+        destroy_game(game);
+        return 84;
+    }
     destroy_game(game);
     return 0;
 }
