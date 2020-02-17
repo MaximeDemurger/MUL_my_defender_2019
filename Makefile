@@ -16,6 +16,9 @@ TESTS	= $(wildcard src/*.g*)
 SRCS	= 	src/main.c 							\
 			src/open_window.c 					\
 			src/capture_event.c 				\
+			src/my/get_next_line.c				\
+			src/my/my_strdup.c					\
+			src/my/my_strlen.c					\
 			src/my/my_putchar.c 				\
 			src/my/my_putstr.c					\
 			src/my/convert.c					\
@@ -29,6 +32,9 @@ SRCS	= 	src/main.c 							\
 			src/menu/settings_menu.c 			\
 			src/destroy/destroy_game.c 			\
 			src/destroy/destroy_menu.c 			\
+			src/game/init_map.c					\
+			src/game/started_gamePlay.c			\
+			src/game/checking_map.c				\
 
 OBJS	= $(SRCS:.c=.o)
 

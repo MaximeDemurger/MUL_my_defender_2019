@@ -39,6 +39,7 @@ typedef struct utils {
     bool pause;
     bool settings;
     bool from_strt;
+    map_t *map_pars;
 }utils_t;
 
 #endif /* !MAIN_STRUCT */
