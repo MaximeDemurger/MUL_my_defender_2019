@@ -21,8 +21,9 @@ int init_utils(utils_t *utils)
     utils->pause = false;
     utils->settings = false;
     utils->from_strt = false;
+    utils->song = sfMusic_createFromFile("image/song.ogg");
     utils->font = sfFont_createFromFile("image/police.otf");
-    if (!utils->font)
+    if (!utils->font || !utils->song)
         return 1;
     return 0;
 }

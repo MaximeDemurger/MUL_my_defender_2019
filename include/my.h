@@ -9,11 +9,12 @@
 #define PROTO
 
 #include <unistd.h>
-#include "SFML/Window.h"
-#include "SFML/Graphics.h"
-#include "SFML/System/Export.h"
-#include "SFML/System/Time.h"
-#include "SFML/System/Types.h"
+#include <SFML/Window.h>
+#include <SFML/Graphics.h>
+#include <SFML/System/Export.h>
+#include <SFML/System/Time.h>
+#include <SFML/System/Types.h>
+#include <SFML/Audio.h>
 #include <stdbool.h>
 #include "menu_struct.h"
 #include "main_struct.h"
@@ -32,6 +33,8 @@ void destroy_menu(strtmenu_t *, pausemenu_t *);
 /* MY LIB*/
 void my_putstr(char const *);
 void my_putchar(char);
+char *convert_to_string(int);
+char *my_revstr(char *);
 
 /* MAIN GAME */
 void open_window(utils_t *, game_t *, char **av);

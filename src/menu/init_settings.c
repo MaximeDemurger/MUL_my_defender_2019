@@ -13,7 +13,7 @@ void set_settings(settings_t *set)
     sfVector2f minus_pos = {775, 400};
     sfVector2f quit_pos = {850, 600};
     sfVector2f scale = {2, 2};
-    
+
     sfSprite_setTexture(set->bg, set->bg_text, sfTrue);
     sfSprite_setTexture(set->plus, set->plus_text, sfTrue);
     sfSprite_setTexture(set->minus, set->minus_text, sfTrue);

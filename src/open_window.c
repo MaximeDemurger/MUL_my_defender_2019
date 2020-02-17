@@ -21,6 +21,7 @@ void check_utils(utils_t *utils, game_t *game)
 
 void open_window(utils_t *utils, game_t *game, char **av)
 {
+    sfMusic_play(utils->song);
     while (sfRenderWindow_isOpen(utils->window)) {
         check_utils(utils, game);
         capture_events(utils, game);

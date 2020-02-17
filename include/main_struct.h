@@ -12,6 +12,7 @@
 #include "SFML/Graphics.h"
 #include "SFML/System/Export.h"
 #include "SFML/System/Time.h"
+#include <SFML/Audio.h>
 #include "SFML/System/Types.h"
 
 typedef struct game_s {
@@ -27,6 +28,7 @@ typedef struct utils {
     sfFont *font;
     sfEvent event;
     sfClock *clock;
+    sfMusic *song;
     char **map;
     int life;
     int score;

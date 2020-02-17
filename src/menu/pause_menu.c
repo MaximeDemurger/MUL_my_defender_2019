@@ -7,6 +7,18 @@
 
 #include "my.h"
 
+void event_bis_pause(utils_t *utils)
+{
+    if (utils->event.type == sfEvtMouseButtonPressed
+        && sfMouse_getPositionRenderWindow(utils->window).x >= 800
+        && sfMouse_getPositionRenderWindow(utils->window).x <= 1100
+        && sfMouse_getPositionRenderWindow(utils->window).y >= 800
+        && sfMouse_getPositionRenderWindow(utils->window).y <= 900) {
+        utils->pause = false;
+        sfRenderWindow_close(utils->window);
+    }
+}
+
 void pause_event(utils_t *utils)
 {
     if (utils->event.type == sfEvtClosed) {
@@ -25,8 +37,10 @@ void pause_event(utils_t *utils)
         && sfMouse_getPositionRenderWindow(utils->window).y >= 600
         && sfMouse_getPositionRenderWindow(utils->window).y <= 700) {
         utils->pause = false;
-        sfRenderWindow_close(utils->window);
+        utils->settings = true;
+        utils->from_strt = false;
     }
+    event_bis_pause(utils);
 }
 
 void pause_menu(utils_t *utils, pausemenu_t *pause)
@@ -46,6 +60,7 @@ void pause_menu(utils_t *utils, pausemenu_t *pause)
         sfRenderWindow_drawSprite(utils->window, pause->background, NULL);
         sfRenderWindow_drawSprite(utils->window, pause->play, NULL);
         sfRenderWindow_drawSprite(utils->window, pause->quit, NULL);
+        sfRenderWindow_drawSprite(utils->window, pause->settings, NULL);
         sfRenderWindow_drawText(utils->window, text, NULL);
         sfRenderWindow_display(utils->window);
     }

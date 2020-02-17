@@ -45,6 +45,8 @@ typedef struct pause_menu {
     sfSprite *play;
     sfTexture *quit_text;
     sfSprite *quit;
+    sfTexture *set_text;
+    sfSprite *settings;
 }pausemenu_t;
 
 typedef struct death_menu {

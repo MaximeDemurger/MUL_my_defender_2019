@@ -16,7 +16,7 @@ void event_bis(utils_t *utils)
         && sfMouse_getPositionRenderWindow(utils->window).y <= 900) {
         utils->strt_menu = false;
         sfRenderWindow_close(utils->window);
-        }
+    }
 }
 
 void strt_menu_event(utils_t *utils)
