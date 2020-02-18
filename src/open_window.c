@@ -22,13 +22,16 @@ void check_utils(utils_t *utils, game_t *game)
 int open_window(utils_t *utils, game_t *game, char **av)
 {
     utils->map_pars = malloc(sizeof(map_t));
+    char **map = gettingMap_fromFile(av);
 
+    if (!map)
+        return 1;
+    printf("oui\n");
     init_map(utils->map_pars, av);
     sfMusic_play(utils->song);
     while (sfRenderWindow_isOpen(utils->window)) {
         check_utils(utils, game);
-        if (start_game(utils, av) == 84)
-            return -1;
+        printing_map(map, utils);
         capture_events(utils, game);
         sfRenderWindow_display(utils->window);
         sfRenderWindow_clear(utils->window, sfBlack);

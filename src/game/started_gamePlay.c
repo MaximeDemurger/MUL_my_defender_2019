@@ -5,7 +5,7 @@
 ** start game play function
 */
 
-#include <stddef.h>
+#include <stdlib.h>
 #include <fcntl.h>
 #include "my.h"
 
@@ -16,7 +16,7 @@ char **gettingMap_fromFile(char **av)
     int i = 0;
     int fd = 0;
 
-    if (av[1] == NULL)
+    if (av[1] == NULL || !line)
         return NULL;
     fd = open(av[1], O_RDONLY);
     if (fd == -1)
@@ -25,19 +25,11 @@ char **gettingMap_fromFile(char **av)
         if (checking_map(str) == 1)
             return NULL;
         line[i] = my_strdup(str);
+        if (!line[i])
+            return NULL;
         i++;
         free(str);
     }
     line[i] = NULL;
     return line;
-}
-
-int start_game(utils_t *utils, char **av)
-{
-    char **tab = NULL;
-
-    if ((tab = gettingMap_fromFile(av)) == NULL)
-        return NULL;
-    printing_map(tab, utils);
-    return 0;
 }

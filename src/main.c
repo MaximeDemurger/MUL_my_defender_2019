@@ -12,7 +12,7 @@ void print_help(void)
     my_putstr("HELP PAGE TO DO\n");
 }
 
-int init_utils(utils_t *utils)
+int init_utils(utils_t *utils, char **av)
 {
     utils->life = 1;
     utils->score = 0;
@@ -31,7 +31,7 @@ int init_utils(utils_t *utils)
     return 0;
 }
 
-int init_game(game_t *game)
+int init_game(game_t *game, char **av)
 {
     game->start = malloc(sizeof(strtmenu_t));
     game->pause = malloc(sizeof(pausemenu_t));
@@ -42,7 +42,7 @@ int init_game(game_t *game)
         || !game->utils || !game->settings) {
         return 1;
     }
-    if (init_utils(game->utils) || init_start(game->start, game->pause)
+    if (init_utils(game->utils, av) || init_start(game->start, game->pause)
         || init_death(game->death) || init_settings(game->settings)) {
         return 1;
         }
@@ -58,7 +58,7 @@ int main(int ac, char **av)
         print_help();
     if (!game)
         return 84;
-    if (init_game(game)) {
+    if (init_game(game, av)) {
         destroy_game(game);
         return 84;
     }
@@ -66,7 +66,7 @@ int main(int ac, char **av)
                     sfResize | sfClose, NULL);
     sfRenderWindow_setFramerateLimit(game->utils->window, 30);
     if (!game->utils->window) return 84;
-    if (open_window(game->utils, game, av) == -1) {
+    if (open_window(game->utils, game, av) == 1) {
         my_putstr("Wrong Map");
         destroy_game(game);
         return 84;
