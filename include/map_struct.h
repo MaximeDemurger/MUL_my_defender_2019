@@ -17,6 +17,10 @@
 typedef struct map_s {
     sfTexture *grass_text;
     sfTexture *soil_text;
+    sfTexture *rock_text;
+    sfTexture *inventory_text;
+    sfSprite *inventory;
+    sfSprite *rock;
     sfSprite *grass;
     sfSprite *soil;
     sfTexture *tower_pos_text;

@@ -21,6 +21,7 @@ typedef struct game_s {
     struct death_menu *death;
     struct utils *utils;
     struct settings_s *settings;
+    struct play_s *play;
 }game_t;
 
 typedef struct utils {

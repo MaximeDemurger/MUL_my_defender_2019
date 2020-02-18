@@ -9,6 +9,7 @@
 #include <fcntl.h>
 #include "my.h"
 
+
 char **gettingMap_fromFile(char **av)
 {
     char **line = malloc(sizeof(char *) * 9);
@@ -29,7 +30,8 @@ char **gettingMap_fromFile(char **av)
             return NULL;
         i++;
         free(str);
-    }
+    } line[i] = "RRRRRIIIIIRRRRR";
+    i++;
     line[i] = NULL;
     return line;
 }

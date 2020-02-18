@@ -24,6 +24,16 @@ void check_charac(char a, utils_t *utils, map_t *map, sfVector2f pos)
         sfSprite_setPosition(map->tower_pos, pos);
         sfRenderWindow_drawSprite(utils->window, map->tower_pos, NULL);
     }
+    if (a == 'R') {
+        sfSprite_setPosition(map->rock, pos);
+        sfRenderWindow_drawSprite(utils->window, map->rock, NULL);
+    }
+    if (a == 'I') {
+        sfSprite_setPosition(map->inventory, pos);
+        sfSprite_setPosition(map->rock, pos);
+        sfRenderWindow_drawSprite(utils->window, map->rock, NULL);
+        sfRenderWindow_drawSprite(utils->window, map->inventory, NULL);
+    }
 }
 
 void printing_map(char **tab, utils_t *utils)

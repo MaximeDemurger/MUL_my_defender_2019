@@ -32,10 +32,12 @@ SRCS	= 	src/main.c 							\
 			src/menu/settings_menu.c 			\
 			src/destroy/destroy_game.c 			\
 			src/destroy/destroy_menu.c 			\
-			src/game/init_map.c					\
-			src/game/started_gamePlay.c			\
-			src/game/put_game_map.c				\
-			src/game/checking_map.c				\
+			src/map/init_map.c					\
+			src/map/getting_map.c				\
+			src/map/print_map.c					\
+			src/map/checking_map.c				\
+			src/game/init_play.c				\
+			src/game/start_gameplay.c			\
 
 OBJS	= $(SRCS:.c=.o)
 

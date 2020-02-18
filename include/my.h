@@ -16,6 +16,7 @@
 #include <SFML/System/Types.h>
 #include <SFML/Audio.h>
 #include <stdbool.h>
+#include "play_struct.h"
 #include "map_struct.h"
 #include "menu_struct.h"
 #include "main_struct.h"
@@ -50,9 +51,13 @@ void capture_events(utils_t *, game_t *);
 
 /* MAP GAME */
 char **gettingMap_fromFile(char **av);
-void init_map(map_t *map, char **av);
+int init_map(map_t *map, char **av);
 void printing_map(char **tab, utils_t *utils);
 char **normal_map(void);
 int checking_map(char const *str);
+
+/* GAME */
+int init_play(play_t *play);
+void gameplay(game_t *game);
 
 #endif /* !PROTO */

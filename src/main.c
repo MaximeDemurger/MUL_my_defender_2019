@@ -38,14 +38,16 @@ int init_game(game_t *game, char **av)
     game->death = malloc(sizeof(deathmenu_t));
     game->utils = malloc(sizeof(utils_t));
     game->settings = malloc(sizeof(settings_t));
+    game->play = malloc(sizeof(play_t));
     if (!game->start || !game->pause || !game->death
-        || !game->utils || !game->settings) {
+        || !game->utils || !game->settings || !game->play) {
         return 1;
     }
     if (init_utils(game->utils, av) || init_start(game->start, game->pause)
-        || init_death(game->death) || init_settings(game->settings)) {
+        || init_death(game->death) || init_settings(game->settings)
+        || init_play(game->play)) {
         return 1;
-        }
+    }
     return 0;
 }
 
