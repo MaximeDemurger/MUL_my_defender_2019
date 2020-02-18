@@ -41,6 +41,11 @@ typedef struct utils {
     bool settings;
     bool from_strt;
     map_t *map_pars;
+    int click_on_tower;
+    int x;
+    int y;
+    int tab;
+    int **case_pos;
 }utils_t;
 
 #endif /* !MAIN_STRUCT */

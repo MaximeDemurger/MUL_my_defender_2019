@@ -47,7 +47,7 @@ char *get_next_line(int fd);
 
 /* MAIN GAME */
 int open_window(utils_t *, game_t *, char **av);
-void capture_events(utils_t *, game_t *);
+void capture_events(utils_t *, game_t *, char **tab);
 
 /* MAP GAME */
 char **gettingMap_fromFile(char **av);

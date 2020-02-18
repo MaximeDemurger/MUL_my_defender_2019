@@ -31,8 +31,8 @@ int open_window(utils_t *utils, game_t *game, char **av)
     while (sfRenderWindow_isOpen(utils->window)) {
         check_utils(utils, game);
         printing_map(map, utils);
+        capture_events(utils, game, map);
         gameplay(game);
-        capture_events(utils, game);
         sfRenderWindow_display(utils->window);
         sfRenderWindow_clear(utils->window, sfBlack);
     }

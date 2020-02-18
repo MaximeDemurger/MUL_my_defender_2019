@@ -17,6 +17,8 @@
 typedef struct play_s {
     sfTexture *tower1_text;
     sfSprite *tower1;
+    sfTexture *select_tow_text;
+    sfSprite *select_tow;
 } play_t;
 
 #endif /* !PLAY_H_ */
