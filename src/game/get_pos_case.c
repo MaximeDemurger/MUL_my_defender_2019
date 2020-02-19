@@ -37,15 +37,14 @@ int put_in(utils_t *utils, int in_tab, int x, int y)
     return in_tab;
 }
 
-void get_pos_case(utils_t *utils, char **map)
+void checking_case(utils_t *utils, char **map)
 {
     int line = 0;
     int col = 0;
     int in_tab = 0;
     int x = 0;
     int y = 0;
-    
-    utils->case_pos = malloc(sizeof(char *) * (nbr_case(map) * 2) + 1);
+
     while (map[line]) {
         col = 0;
         x = 0;
@@ -59,4 +58,13 @@ void get_pos_case(utils_t *utils, char **map)
         line++;
     }
     utils->case_pos[in_tab] = NULL;
+}
+
+int get_pos_case(utils_t *utils, char **map)
+{
+    utils->case_pos = malloc(sizeof(char *) * (nbr_case(map) * 2) + 1);
+    if (!utils->case_pos)
+        return 84;
+    checking_case(utils, map);
+    return 0;
 }

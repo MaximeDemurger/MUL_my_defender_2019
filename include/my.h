@@ -58,7 +58,7 @@ char **normal_map(void);
 int checking_map(char const *str);
 
 /* GAME */
-void get_pos_case(utils_t *utils, char **map);
+int get_pos_case(utils_t *utils, char **map);
 int init_play(play_t *play);
 void gameplay(game_t *game);
 
