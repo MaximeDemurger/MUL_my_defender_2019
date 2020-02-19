@@ -16,14 +16,18 @@
 #include <SFML/System/Types.h>
 #include <SFML/Audio.h>
 #include <stdbool.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include "play_struct.h"
 #include "map_struct.h"
 #include "menu_struct.h"
 #include "main_struct.h"
+#include "enemi.h"
 
 #ifndef READ_SIZE
 #define READ_SIZE 4096
 #endif
+
 
 /* MENU */
 int init_start(strtmenu_t *, pausemenu_t *);
@@ -60,6 +64,12 @@ int checking_map(char const *str);
 /* GAME */
 int get_pos_case(utils_t *utils, char **map);
 int init_play(play_t *play);
-void gameplay(game_t *game);
+void gameplay(game_t *game, path_t *);
+
+/* ENEMY */
+void enemy_wave(enemy_t **, int, utils_t *, path_t *);
+void pathfinding(enemy_t *, path_t *, utils_t *);
+path_t *get_path(char **);
+void attack_castle(enemy_t **, utils_t *);
 
 #endif /* !PROTO */

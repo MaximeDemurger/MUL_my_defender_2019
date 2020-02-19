@@ -41,7 +41,9 @@ void put_tower(game_t *game)
     tower_onset(game, pos, set_tow);
 }
 
-void gameplay(game_t *game)
+void gameplay(game_t *game, path_t *path)
 {
     put_tower(game);
+    attack_castle(&game->enemy, game->utils);
+    pathfinding(game->enemy, path, game->utils);
 }

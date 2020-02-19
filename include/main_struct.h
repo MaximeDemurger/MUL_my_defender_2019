@@ -22,6 +22,7 @@ typedef struct game_s {
     struct utils *utils;
     struct settings_s *settings;
     struct play_s *play;
+    struct enemy_s *enemy;
 }game_t;
 
 typedef struct utils {
@@ -44,6 +45,8 @@ typedef struct utils {
     int click_on_tower;
     int line;
     char **case_pos;
+    int wave;
+    int nb_ene;
 }utils_t;
 
 #endif /* !MAIN_STRUCT */

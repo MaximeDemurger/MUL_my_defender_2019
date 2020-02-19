@@ -7,7 +7,7 @@
 
 NAME	= my_defender
 
-CC	= gcc
+CC	= gcc -g
 
 RM	= rm -f
 
@@ -40,6 +40,10 @@ SRCS	= 	src/main.c 							\
 			src/game/init_play.c				\
 			src/game/start_gameplay.c			\
 			src/game/get_pos_case.c				\
+			src/enemy/create_enemy.c 			\
+			src/enemy/enemy.c 					\
+			src/enemy/get_path.c				\
+			src/enemy/attack_castle.c			\
 
 OBJS	= $(SRCS:.c=.o)
 

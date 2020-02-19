@@ -14,8 +14,9 @@ void print_help(void)
 
 int init_utils(utils_t *utils, char **av)
 {
-    utils->life = 1;
+    utils->life = 100;
     utils->score = 0;
+    utils->wave = 0;
     utils->strt_menu = true;
     utils->death = false;
     utils->pause = false;
