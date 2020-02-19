@@ -9,7 +9,6 @@
 #include <fcntl.h>
 #include "my.h"
 
-
 char **gettingMap_fromFile(char **av)
 {
     char **line = malloc(sizeof(char *) * 9);

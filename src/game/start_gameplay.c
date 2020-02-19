@@ -31,7 +31,8 @@ void put_tower(game_t *game)
 
     if (game->utils->click_on_tower < 2) {
         sfSprite_setPosition(game->play->tower1, pos);
-        sfRenderWindow_drawSprite(game->utils->window, game->play->tower1, NULL);
+        sfRenderWindow_drawSprite(game->utils->window, game->play->tower1,
+                                  NULL);
     } if (game->utils->click_on_tower == 1) {
         sfSprite_setPosition(game->play->select_tow, mouse);
         sfRenderWindow_drawSprite(game->utils->window, game->play->select_tow,

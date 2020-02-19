@@ -63,8 +63,7 @@ int main(int ac, char **av)
     if (init_game(game, av)) {
         destroy_game(game);
         return 84;
-    }
-    game->utils->window = sfRenderWindow_create(view_mode, "MY DEFENDER",
+    } game->utils->window = sfRenderWindow_create(view_mode, "MY DEFENDER",
                     sfResize | sfClose, NULL);
     sfRenderWindow_setFramerateLimit(game->utils->window, 30);
     if (!game->utils->window) return 84;

@@ -47,7 +47,7 @@ void printing_map(char **tab, utils_t *utils)
     int x = 0;
     int y = 0;
     sfVector2f pos = {x, y};
-    
+
     while (tab[line] != NULL) {
         col = 0;
         pos.x = 0;
