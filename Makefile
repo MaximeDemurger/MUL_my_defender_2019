@@ -18,6 +18,7 @@ SRCS	= 	src/main.c 							\
 			src/capture_event.c 				\
 			src/my/get_next_line.c				\
 			src/my/my_strdup.c					\
+			src/my/my_atoi.c					\
 			src/my/my_strlen.c					\
 			src/my/my_putchar.c 				\
 			src/my/my_putstr.c					\
@@ -38,6 +39,7 @@ SRCS	= 	src/main.c 							\
 			src/map/checking_map.c				\
 			src/game/init_play.c				\
 			src/game/start_gameplay.c			\
+			src/game/get_pos_case.c				\
 
 OBJS	= $(SRCS:.c=.o)
 

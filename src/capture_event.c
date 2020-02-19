@@ -9,16 +9,18 @@
 
 int check_pos(utils_t *utils, int mouse_x, int mouse_y)
 {
-    int line = 0;
+    utils->line = 0;
 
-    while (utils->case_pos[line]) {
-        if (mouse_x > utils->case_pos[line][0] - 120 &&
-            mouse_x < utils->case_pos[line][0] + 120 &&
-            mouse_y > utils->case_pos[line][1] &&
-            mouse_y < utils->case_pos[line][1] + 120 &&
-            utils->click_on_tower == 1)
-            utils->click_on_tower = 0;
-        line++;
+    while (utils->case_pos[utils->line]) {
+        if (mouse_x > my_atoi(utils->case_pos[utils->line]) - 120 &&
+            mouse_x < my_atoi(utils->case_pos[utils->line]) + 120 &&
+            mouse_y > my_atoi(utils->case_pos[utils->line + 1]) &&
+            mouse_y < my_atoi(utils->case_pos[utils->line + 1]) + 120 &&
+            utils->click_on_tower == 1) {
+            utils->click_on_tower = 2;
+            return 0;
+        }
+        utils->line += 2;
     }
     return 0;
 }
@@ -39,6 +41,7 @@ void capture_events(utils_t *utils, game_t *game, char **tab)
         if (mouse_x > sprite_x - 120 && mouse_x < sprite_x + 120 &&
             mouse_y > sprite_y && mouse_y < sprite_y + 120)
             utils->click_on_tower = 1;
-        //check_pos(utils, mouse_x, mouse_y);
+        if (utils->click_on_tower == 1)
+            check_pos(utils, mouse_x, mouse_y);
     }
 }

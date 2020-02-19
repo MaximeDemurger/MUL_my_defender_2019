@@ -13,6 +13,8 @@ void put_tower(game_t *game)
     int y = sfMouse_getPositionRenderWindow(game->utils->window).y;
     sfVector2f pos = {645, 945};
     sfVector2f mouse = {x - 32, y - 32};
+    sfVector2f set_tow = {my_atoi(game->utils->case_pos[game->utils->line]),
+                        my_atoi(game->utils->case_pos[game->utils->line + 1])};
 
     sfSprite_setPosition(game->play->tower1, pos);
     sfRenderWindow_drawSprite(game->utils->window, game->play->tower1, NULL);
@@ -20,6 +22,11 @@ void put_tower(game_t *game)
         sfSprite_setPosition(game->play->select_tow, mouse);
         sfRenderWindow_drawSprite(game->utils->window, game->play->select_tow,
                                   NULL);
+    }
+    if (game->utils->click_on_tower == 2) {
+        sfSprite_setPosition(game->play->tower1, set_tow);
+        sfRenderWindow_drawSprite(game->utils->window,
+                                    game->play->tower1, NULL);
     }
 }
 

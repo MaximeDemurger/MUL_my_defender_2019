@@ -26,6 +26,7 @@ int open_window(utils_t *utils, game_t *game, char **av)
 
     if (!map)
         return 1;
+    get_pos_case(utils, map);
     init_map(utils->map_pars, av);
     sfMusic_play(utils->song);
     while (sfRenderWindow_isOpen(utils->window)) {
