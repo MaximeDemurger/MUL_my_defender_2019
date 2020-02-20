@@ -45,7 +45,7 @@ SRCS	= 	src/main.c 							\
 			src/enemy/enemy.c 					\
 			src/enemy/get_path.c				\
 			src/enemy/attack_castle.c			\
-			##src/game/tower_shot.c				\
+			src/game/tower_shot.c				\
 
 OBJS	= $(SRCS:.c=.o)
 

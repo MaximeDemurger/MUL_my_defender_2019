@@ -30,7 +30,7 @@ int open_window(utils_t *utils, game_t *game, char **av)
     get_pos_case(utils, map);
     init_map(utils->map_pars, av);
     path = get_path(map);
-    sfMusic_play(utils->song);
+    //sfMusic_play(utils->song);
     enemy_wave(&game->enemy, 5, utils, path);
     while (sfRenderWindow_isOpen(utils->window)) {
         check_utils(utils, game);

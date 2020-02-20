@@ -21,6 +21,9 @@ typedef struct play_s {
     sfSprite *select_tow;
     sfTexture *range_text;
     sfSprite *range;
+    sfTexture *missile_text;
+    sfSprite *missile;
+    sfVector2f pos_missile;
 } play_t;
 
 #endif /* !PLAY_H_ */

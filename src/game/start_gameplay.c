@@ -27,7 +27,6 @@ void put_tower(game_t *game)
                                   NULL);
     }
     tower_onset(game, pos, set_tow);
-    //tower_shot(game, set_tow);
 }
 
 void gameplay(game_t *game, path_t *path)
