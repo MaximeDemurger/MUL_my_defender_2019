@@ -34,8 +34,8 @@ int open_window(utils_t *utils, game_t *game, char **av)
     enemy_wave(&game->enemy, 5, utils, path);
     while (sfRenderWindow_isOpen(utils->window)) {
         check_utils(utils, game);
-        printing_map(map, utils);
         capture_events(utils, game, map);
+        printing_map(map, utils);
         gameplay(game, path);
         if (!game->enemy) enemy_wave(&game->enemy, 5, utils, path);
         if (utils->life <= 0) utils->death = true;

@@ -23,6 +23,7 @@ typedef struct game_s {
     struct settings_s *settings;
     struct play_s *play;
     struct enemy_s *enemy;
+    struct path_s *path;
 }game_t;
 
 typedef struct utils {
@@ -47,6 +48,7 @@ typedef struct utils {
     char **case_pos;
     int wave;
     int nb_ene;
+    int x;
 }utils_t;
 
 #endif /* !MAIN_STRUCT */
