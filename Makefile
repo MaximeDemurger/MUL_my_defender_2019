@@ -37,6 +37,7 @@ SRCS	= 	src/main.c 							\
 			src/map/getting_map.c				\
 			src/map/print_map.c					\
 			src/map/checking_map.c				\
+			src/game/range_tower.c				\
 			src/game/init_play.c				\
 			src/game/start_gameplay.c			\
 			src/game/get_pos_case.c				\

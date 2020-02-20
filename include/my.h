@@ -65,6 +65,8 @@ int checking_map(char const *str);
 int get_pos_case(utils_t *utils, char **map);
 int init_play(play_t *play);
 void gameplay(game_t *game, path_t *);
+void range_tower(game_t *game, sfVector2f set_tow);
+void tower_onset(game_t *game, sfVector2f pos, sfVector2f set_tow);
 
 /* ENEMY */
 void enemy_wave(enemy_t **, int, utils_t *, path_t *);

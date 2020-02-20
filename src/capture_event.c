@@ -39,7 +39,7 @@ void capture_events(utils_t *utils, game_t *game, char **tab)
             utils->event.key.code == sfKeyEscape)
             utils->pause = true;
         if (mouse_x > sprite_x - 120 && mouse_x < sprite_x + 120 &&
-            mouse_y > sprite_y && mouse_y < sprite_y + 120)
+            mouse_y > sprite_y && mouse_y < sprite_y + 120 && utils->click_on_tower < 1)
             utils->click_on_tower = 1;
         if (utils->click_on_tower == 1)
             check_pos(utils, mouse_x, mouse_y);
