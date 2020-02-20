@@ -18,6 +18,7 @@
 typedef struct enemy_s {
     sfSprite *sprite;
     sfVector2f pos;
+    int status;
     int life;
     struct enemy_s *next;
 }enemy_t;

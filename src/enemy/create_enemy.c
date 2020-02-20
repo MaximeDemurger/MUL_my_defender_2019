@@ -31,14 +31,17 @@ sfSprite *create_sprite(sfVector2f position, sfTexture *text)
 enemy_t *put_enemy(enemy_t *list, utils_t *utils, path_t *path)
 {
     enemy_t *new = malloc(sizeof(enemy_t));
-    sfTexture *text = sfTexture_createFromFile("image/tower1.png", NULL);
+    sfTexture *text = sfTexture_createFromFile("image/character.png", NULL);
+    sfVector2f org = {38.5, 25.5};
 
     if (!new)
         return NULL;
     new->life = 100;
+    new->status = 0;
     new->pos.x = path->pos.x;
-    new->pos.y = (path->pos.y) + ((rand() % 50));
+    new->pos.y = (path->pos.y) + ((rand() % 100));
     new->sprite = create_sprite(new->pos, text);
+    sfSprite_setOrigin(new->sprite, org);
     new->next = list;
     return new;
 }
