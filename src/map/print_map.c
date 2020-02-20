@@ -26,7 +26,7 @@ void check_charac(char a, utils_t *utils, map_t *map, sfVector2f pos)
         sfSprite_setPosition(map->soil, pos);
         sfRenderWindow_drawSprite(utils->window, map->soil, NULL);
     }
-    if (a == '1')
+    if (a == '1' || a == 'N')
         check_case(map, utils, pos);
     if (a == 'R') {
         sfSprite_setPosition(map->rock, pos);

@@ -49,6 +49,8 @@ typedef struct utils {
     int wave;
     int nb_ene;
     int x;
+    int tow_pos_x;
+    int tow_pos_y;
 }utils_t;
 
 #endif /* !MAIN_STRUCT */

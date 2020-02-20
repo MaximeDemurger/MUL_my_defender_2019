@@ -11,8 +11,8 @@ void put_tower(game_t *game)
 {
     int x = sfMouse_getPositionRenderWindow(game->utils->window).x;
     int y = sfMouse_getPositionRenderWindow(game->utils->window).y;
-    int in_pos_x = my_atoi(game->utils->case_pos[game->utils->line]);
-    int in_pos_y = my_atoi(game->utils->case_pos[game->utils->line + 1]);
+    int in_pos_x = game->utils->tow_pos_x;
+    int in_pos_y = game->utils->tow_pos_y;
     sfVector2f pos = {645, 945};
     sfVector2f mouse = {x - 32, y - 32};
     sfVector2f set_tow = {in_pos_x, in_pos_y};
@@ -27,6 +27,7 @@ void put_tower(game_t *game)
                                   NULL);
     }
     tower_onset(game, pos, set_tow);
+    //tower_shot(game, set_tow);
 }
 
 void gameplay(game_t *game, path_t *path)
