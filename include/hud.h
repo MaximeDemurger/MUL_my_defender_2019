@@ -22,6 +22,8 @@ typedef struct hud_s {
     sfSprite *heart;
     sfText *coin_txt;
     sfText *life;
+    sfIntRect coin_r;
+    sfIntRect heart_r;
 }hud_t;
 
 #endif /* !HUD */

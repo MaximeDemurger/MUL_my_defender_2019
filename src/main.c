@@ -27,7 +27,9 @@ int init_utils(utils_t *utils)
     utils->hoover_text = sfTexture_createFromFile("image/hoover.png", NULL);
     utils->hoover = sfSprite_create();
     utils->clock = sfClock_create();
-    if (!utils->font || !utils->song || !utils->hoover || !utils->hoover_text)
+    utils->heart = sfClock_create();
+    if (!utils->font || !utils->song || !utils->hoover || !utils->hoover_text
+        || !utils->clock || !utils->heart)
         return 1;
     sfSprite_setTexture(utils->hoover, utils->hoover_text, sfTrue);
     return 0;

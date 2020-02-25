@@ -32,6 +32,7 @@ typedef struct utils {
     sfFont *font;
     sfEvent event;
     sfClock *clock;
+    sfClock *heart;
     sfMusic *song;
     sfTexture *hoover_text;
     sfSprite *hoover;

@@ -7,6 +7,18 @@
 
 #include "my.h"
 
+void init_rect(hud_t *hud)
+{
+    hud->heart_r.left = 10;
+    hud->heart_r.top = 10;
+    hud->heart_r.width = 60;
+    hud->heart_r.height = 135;
+    hud->coin_r.left = 0;
+    hud->coin_r.top = 0;
+    hud->coin_r.width = 56;
+    hud->coin_r.height = 56;
+}
+
 int init_hud(hud_t *hud)
 {
     sfVector2f pos_coin = {1800, 980};
@@ -20,6 +32,7 @@ int init_hud(hud_t *hud)
     hud->heart = sfSprite_create();
     hud->life = sfText_create();
     hud->coin_txt = sfText_create();
+    init_rect(hud);
     if (!hud->coin_text || !hud->coin || !hud->heart_text ||
         !hud->heart || !hud->life || !hud->coin_txt)
         return 1;

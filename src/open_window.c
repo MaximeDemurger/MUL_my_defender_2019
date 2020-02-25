@@ -19,6 +19,24 @@ void check_utils(utils_t *utils, game_t *game)
         settings_menu(utils, game->settings);
 }
 
+void move_rects(utils_t *utils, hud_t *hud)
+{
+    if (sfClock_getElapsedTime(utils->heart).microseconds
+        / 1000000.0 >= 0.1) {
+        hud->heart_r.left += 60;
+        if (hud->heart_r.left >= 682)
+            hud->heart_r.left = 10;
+        sfClock_restart(utils->heart);
+    }
+    if (sfClock_getElapsedTime(utils->clock).microseconds
+        / 1000000.0 >= 0.05) {
+        hud->coin_r.left += 56;
+        if (hud->coin_r.left >= 560)
+            hud->coin_r.left = 0;
+        sfClock_restart(utils->clock);
+    }
+}
+
 int open_window(utils_t *utils, game_t *game, char **av)
 {
     utils->map_pars = malloc(sizeof(map_t));
@@ -37,6 +55,7 @@ int open_window(utils_t *utils, game_t *game, char **av)
         capture_events(utils, game, map);
         printing_map(map, utils);
         gameplay(game, path);
+        move_rects(utils, game->hud);
         draw_hud(game->hud, utils);
         if (!game->enemy) enemy_wave(&game->enemy, 5, utils, path);
         if (utils->life <= 0) utils->death = true;
