@@ -63,6 +63,7 @@ int init_map(map_t *map, char **av);
 void printing_map(char **tab, utils_t *utils);
 char **normal_map(void);
 int checking_map(char const *str);
+int print_basement(char **tab, utils_t *utils, map_t *map);
 
 /* GAME */
 int get_pos_case(utils_t *utils, char **map);

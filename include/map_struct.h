@@ -25,6 +25,8 @@ typedef struct map_s {
     sfSprite *soil;
     sfTexture *tower_pos_text;
     sfSprite *tower_pos;
+    sfTexture *basement_text;
+    sfSprite *basement;
 } map_t;
 
 
