@@ -7,9 +7,10 @@
 
 #include "my.h"
 
-void set_rotation(game_t *game)
+void set_rotation(game_t *game, sfVector2f set_tow)
 {
     float y;
+    static int pass = 0;
     int tow_pos_X = sfSprite_getPosition(game->play->tower1).x;
     int enemy_pos_X = sfSprite_getPosition(game->enemy->sprite).x;
     int tow_pos_Y = sfSprite_getPosition(game->play->tower1).y;
@@ -19,6 +20,17 @@ void set_rotation(game_t *game)
 
     y = -atan2(a, b) * 180 / 3.14;
     sfSprite_setRotation(game->play->tower1, y);
+    if (pass == 0) {
+        game->play->pos_missile = set_tow;
+        pass++;
+    }
+    if (sfSprite_getPosition(game->enemy->sprite).x == game->play->pos_missile.x &&
+        sfSprite_getPosition(game->enemy->sprite).y == game->play->pos_missile.y) {
+        game->play->pos_missile.x = set_tow.x;
+        game->play->pos_missile.y = set_tow.y;
+        write(1, "ok", 1);
+    }
+    tower_shot(game);
 }
 
 void range_tower(game_t *game, sfVector2f set_tow)
@@ -27,16 +39,15 @@ void range_tower(game_t *game, sfVector2f set_tow)
     sfVector2f enemy_pos = sfSprite_getPosition(game->enemy->sprite);
     
     if ((tower_pos.x - 250 < enemy_pos.x ||
-        tower_pos.x + 100 < enemy_pos.x) &&
+        tower_pos.x + 250 < enemy_pos.x) &&
         (tower_pos.y - 250 > enemy_pos.y ||
-        tower_pos.y + 100 > enemy_pos.y)) {
-        set_rotation(game);
+        tower_pos.y + 250 > enemy_pos.y)) {
+        set_rotation(game, set_tow);
     } 
 }
 
 void tower_onset(game_t *game, sfVector2f pos, sfVector2f set_tow)
 {
-    sfVector2f pos_range = set_tow;
     sfVector2f origin = {64, 67.5};
     static int i = 0;
 
