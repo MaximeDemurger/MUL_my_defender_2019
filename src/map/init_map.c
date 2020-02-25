@@ -19,10 +19,17 @@ int init_map(map_t *map)
     map->soil = sfSprite_create();
     map->tower_pos = sfSprite_create();
     map->rock = sfSprite_create();
+    map->basement_text = sfTexture_createFromFile("image/basement.png", NULL);
+    map->basement = sfSprite_create();
+    if (!map->rock || !map->soil || !map->tower_pos || !map->grass ||
+    !map->inventory || !map->inventory_text || !map->rock_text ||
+    !map->tower_pos_text || !map->soil_text || !map->grass_text)
+        return 84;
     sfSprite_setTexture(map->inventory, map->inventory_text, sfTrue);
     sfSprite_setTexture(map->grass, map->grass_text, sfTrue);
     sfSprite_setTexture(map->soil, map->soil_text, sfTrue);
     sfSprite_setTexture(map->tower_pos, map->tower_pos_text, sfTrue);
     sfSprite_setTexture(map->rock, map->rock_text, sfTrue);
+    sfSprite_setTexture(map->basement, map->basement_text, sfTrue);
     return 0;
 }

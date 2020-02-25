@@ -40,6 +40,23 @@ void check_charac(char a, utils_t *utils, map_t *map, sfVector2f pos)
     }
 }
 
+int print_basement(char **tab, utils_t *utils, map_t *map)
+{
+    int line = 0;
+    int y = -15;
+    sfVector2f pos_base = {1760, y};
+    
+    while (tab[line]) {
+        if (tab[line][14] == 'X') { 
+            sfSprite_setPosition(map->basement, pos_base);
+            sfRenderWindow_drawSprite(utils->window, map->basement, NULL);
+        }
+        pos_base.y += 135;
+        line++;
+    }
+    return 0;
+}
+
 void printing_map(char **tab, utils_t *utils)
 {
     int col = 0;

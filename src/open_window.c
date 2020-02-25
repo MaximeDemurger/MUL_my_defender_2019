@@ -40,6 +40,7 @@ int open_window(utils_t *utils, game_t *game, char **av)
         draw_hud(game->hud, utils);
         if (!game->enemy) enemy_wave(&game->enemy, 5, utils, path);
         if (utils->life <= 0) utils->death = true;
+        print_basement(map, utils, utils->map_pars);
         sfRenderWindow_display(utils->window);
         sfRenderWindow_clear(utils->window, sfBlack);
     }
