@@ -20,6 +20,7 @@ void death_menu_event(utils_t *utils)
         && sfMouse_getPositionRenderWindow(utils->window).y <= 500) {
         utils->death = false;
         utils->score = 0;
+        utils->life = 100;
     }
     if (utils->event.type == sfEvtMouseButtonPressed
         && sfMouse_getPositionRenderWindow(utils->window).x >= 800
@@ -31,6 +32,28 @@ void death_menu_event(utils_t *utils)
         }
 }
 
+void do_death_hoover(utils_t *utils)
+{
+    sfVector2f pos1 = {825, 790};
+    sfVector2f pos2 = {825, 590};
+
+    if (sfMouse_getPositionRenderWindow(utils->window).x >= 850
+        && sfMouse_getPositionRenderWindow(utils->window).x <= 1100
+        && sfMouse_getPositionRenderWindow(utils->window).y >= 800
+        && sfMouse_getPositionRenderWindow(utils->window).y <= 900) {
+        sfSprite_setPosition(utils->hoover, pos1);
+        sfRenderWindow_drawSprite(utils->window, utils->hoover, NULL);
+    }
+    if (sfMouse_getPositionRenderWindow(utils->window).x >= 850
+        && sfMouse_getPositionRenderWindow(utils->window).x <= 1100
+        && sfMouse_getPositionRenderWindow(utils->window).y >= 600
+        && sfMouse_getPositionRenderWindow(utils->window).y <= 700) {
+        sfSprite_setPosition(utils->hoover, pos2);
+        sfRenderWindow_drawSprite(utils->window, utils->hoover, NULL);
+    }
+    hoover_button_bis(utils);
+}
+
 void death_menu(utils_t *utils, deathmenu_t *death)
 {
     sfRenderWindow_clear(utils->window, sfBlack);
@@ -39,6 +62,7 @@ void death_menu(utils_t *utils, deathmenu_t *death)
             death_menu_event(utils);
         }
         sfRenderWindow_drawSprite(utils->window, death->background, NULL);
+        do_death_hoover(utils);
         sfRenderWindow_drawSprite(utils->window, death->play, NULL);
         sfRenderWindow_drawSprite(utils->window, death->quit, NULL);
         sfRenderWindow_drawText(utils->window, death->text, NULL);

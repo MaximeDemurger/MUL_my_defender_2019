@@ -34,7 +34,7 @@ void clear_enemys(enemy_t **ene)
 void attack_castle(enemy_t **ene, utils_t *utils)
 {
     if (*ene) {
-        if ((*ene)->pos.x > 1780) {
+        if ((*ene)->pos.x > 1770) {
             utils->life -= enemys_left(*ene);
             clear_enemys(ene);
         }
