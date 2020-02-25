@@ -33,6 +33,8 @@
 /* MENU */
 int init_start(strtmenu_t *, pausemenu_t *);
 int init_death(deathmenu_t *);
+int init_settings(settings_t *);
+void settings_menu(utils_t *, settings_t *);
 void death_menu(utils_t *, deathmenu_t *);
 void starting_menu(utils_t *, strtmenu_t *);
 void pause_menu(utils_t *, pausemenu_t *);

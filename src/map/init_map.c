@@ -24,4 +24,5 @@ int init_map(map_t *map)
     sfSprite_setTexture(map->soil, map->soil_text, sfTrue);
     sfSprite_setTexture(map->tower_pos, map->tower_pos_text, sfTrue);
     sfSprite_setTexture(map->rock, map->rock_text, sfTrue);
+    return 0;
 }

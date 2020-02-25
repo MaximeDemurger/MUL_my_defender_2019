@@ -12,7 +12,7 @@ void print_help(void)
     my_putstr("HELP PAGE TO DO\n");
 }
 
-int init_utils(utils_t *utils, char **av)
+int init_utils(utils_t *utils)
 {
     utils->life = 100;
     utils->money = 30;
@@ -33,7 +33,7 @@ int init_utils(utils_t *utils, char **av)
     return 0;
 }
 
-int init_game(game_t *game, char **av)
+int init_game(game_t *game)
 {
     game->start = malloc(sizeof(strtmenu_t));
     game->pause = malloc(sizeof(pausemenu_t));
@@ -46,7 +46,7 @@ int init_game(game_t *game, char **av)
         || !game->utils || !game->settings || !game->play) {
         return 1;
     }
-    if (init_utils(game->utils, av) || init_start(game->start, game->pause)
+    if (init_utils(game->utils) || init_start(game->start, game->pause)
         || init_death(game->death) || init_settings(game->settings)
         || init_play(game->play) || init_hud(game->hud)) {
         return 1;
@@ -63,7 +63,7 @@ int main(int ac, char **av)
         print_help();
     if (!game)
         return 84;
-    if (init_game(game, av)) {
+    if (init_game(game)) {
         destroy_game(game);
         return 84;
     } game->utils->window = sfRenderWindow_create(view_mode, "MY DEFENDER",

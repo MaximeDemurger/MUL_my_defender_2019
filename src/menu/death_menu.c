@@ -51,7 +51,6 @@ void do_death_hoover(utils_t *utils)
         sfSprite_setPosition(utils->hoover, pos2);
         sfRenderWindow_drawSprite(utils->window, utils->hoover, NULL);
     }
-    hoover_button_bis(utils);
 }
 
 void death_menu(utils_t *utils, deathmenu_t *death)
