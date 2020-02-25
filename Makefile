@@ -7,7 +7,7 @@
 
 NAME	= my_defender
 
-CC	= gcc -g
+CC	= gcc -Wno-deprecated
 
 RM	= rm -f
 
