@@ -6,6 +6,7 @@
 */
 
 #include "my.h"
+#include <math.h>
 
 void set_rotation(game_t *game, sfVector2f set_tow)
 {
@@ -23,12 +24,6 @@ void set_rotation(game_t *game, sfVector2f set_tow)
     if (pass == 0) {
         game->play->pos_missile = set_tow;
         pass++;
-    }
-    if (sfSprite_getPosition(game->enemy->sprite).x == game->play->pos_missile.x &&
-        sfSprite_getPosition(game->enemy->sprite).y == game->play->pos_missile.y) {
-        game->play->pos_missile.x = set_tow.x;
-        game->play->pos_missile.y = set_tow.y;
-        write(1, "ok", 1);
     }
     tower_shot(game);
 }

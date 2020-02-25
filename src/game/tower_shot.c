@@ -6,30 +6,27 @@
 */
 
 #include "my.h"
+#include <math.h>
 
 void tower_shot(game_t *game)
 {
-    int enemy_x = sfSprite_getPosition(game->enemy->sprite).x;
-    int enemy_y = sfSprite_getPosition(game->enemy->sprite).y;
-    int delta_x = enemy_x - game->play->pos_missile.x;
-    int delta_y = enemy_y - game->play->pos_missile.y;
+    float y;
+    sfVector2f pos_missile = sfSprite_getPosition(game->play->tower1);
+    static int pass = 0;
+    int tow_pos_X = sfSprite_getPosition(game->play->tower1).x;
+    int enemy_pos_X = sfSprite_getPosition(game->enemy->sprite).x;
+    int tow_pos_Y = sfSprite_getPosition(game->play->tower1).y;
+    int enemy_pos_Y = sfSprite_getPosition(game->enemy->sprite).y;
+    double a = enemy_pos_X - tow_pos_X;
+    double b = enemy_pos_Y - tow_pos_Y;
 
-    if (delta_x < 0 && delta_y > 0) {
-        game->play->pos_missile.x -= 2;
-        game->play->pos_missile.y += 2;
+    if (pass == 0) {
+        pos_missile.x -= 60;
+        pos_missile.y -= 60;
+        pass++;
     }
-    if (delta_x > 0 && delta_y < 0) {
-        game->play->pos_missile.x += 2;
-        game->play->pos_missile.y -= 2;
-    }
-    if (delta_x > 0 && delta_y > 0) {
-        game->play->pos_missile.x += 2;
-        game->play->pos_missile.y += 2;
-    }
-    if (delta_x < 0 && delta_y < 0) {
-        game->play->pos_missile.x -= 2;
-        game->play->pos_missile.y -= 2;
-    }
-    sfSprite_setPosition(game->play->missile, game->play->pos_missile);
+    y = -atan2(a, b) * 180 / 3.14;
+    sfSprite_setRotation(game->play->missile, y);
+    sfSprite_setPosition(game->play->missile, pos_missile);
     sfRenderWindow_drawSprite(game->utils->window, game->play->missile, NULL);
 }
