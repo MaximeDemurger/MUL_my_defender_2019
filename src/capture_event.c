@@ -98,5 +98,4 @@ void capture_events(utils_t *utils, game_t *game, char **tab)
         }  
         click_book(game, mouse_x, mouse_y);
     }
-    print_money_loss(game);
 }
