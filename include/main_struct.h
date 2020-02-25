@@ -24,6 +24,7 @@ typedef struct game_s {
     struct play_s *play;
     struct enemy_s *enemy;
     struct path_s *path;
+    struct hud_s *hud;
 }game_t;
 
 typedef struct utils {
@@ -36,7 +37,7 @@ typedef struct utils {
     sfSprite *hoover;
     char **map;
     int life;
-    int score;
+    int money;
     bool strt_menu;
     bool death;
     bool pause;

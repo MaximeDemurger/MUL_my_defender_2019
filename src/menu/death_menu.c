@@ -19,7 +19,7 @@ void death_menu_event(utils_t *utils)
         && sfMouse_getPositionRenderWindow(utils->window).y >= 400
         && sfMouse_getPositionRenderWindow(utils->window).y <= 500) {
         utils->death = false;
-        utils->score = 0;
+        utils->money = 30;
         utils->life = 100;
     }
     if (utils->event.type == sfEvtMouseButtonPressed

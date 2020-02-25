@@ -15,7 +15,7 @@ void print_help(void)
 int init_utils(utils_t *utils, char **av)
 {
     utils->life = 100;
-    utils->score = 0;
+    utils->money = 30;
     utils->wave = 0;
     utils->strt_menu = true;
     utils->death = false;
@@ -26,6 +26,7 @@ int init_utils(utils_t *utils, char **av)
     utils->font = sfFont_createFromFile("image/police.otf");
     utils->hoover_text = sfTexture_createFromFile("image/hoover.png", NULL);
     utils->hoover = sfSprite_create();
+    utils->clock = sfClock_create();
     if (!utils->font || !utils->song || !utils->hoover || !utils->hoover_text)
         return 1;
     sfSprite_setTexture(utils->hoover, utils->hoover_text, sfTrue);
@@ -40,13 +41,14 @@ int init_game(game_t *game, char **av)
     game->utils = malloc(sizeof(utils_t));
     game->settings = malloc(sizeof(settings_t));
     game->play = malloc(sizeof(play_t));
-    if (!game->start || !game->pause || !game->death
+    game->hud = malloc(sizeof(hud_t));
+    if (!game->start || !game->pause || !game->death || !game->hud
         || !game->utils || !game->settings || !game->play) {
         return 1;
     }
     if (init_utils(game->utils, av) || init_start(game->start, game->pause)
         || init_death(game->death) || init_settings(game->settings)
-        || init_play(game->play)) {
+        || init_play(game->play) || init_hud(game->hud)) {
         return 1;
     }
     return 0;

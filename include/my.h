@@ -22,6 +22,7 @@
 #include "map_struct.h"
 #include "menu_struct.h"
 #include "main_struct.h"
+#include "hud.h"
 #include "enemi.h"
 
 #ifndef READ_SIZE
@@ -74,5 +75,9 @@ void enemy_wave(enemy_t **, int, utils_t *, path_t *);
 void pathfinding(enemy_t *, path_t *, utils_t *);
 path_t *get_path(char **);
 void attack_castle(enemy_t **, utils_t *);
+
+/* HUD */
+int init_hud(hud_t *);
+void draw_hud(hud_t *, utils_t *);
 
 #endif /* !PROTO */

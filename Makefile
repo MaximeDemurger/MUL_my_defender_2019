@@ -41,11 +41,13 @@ SRCS	= 	src/main.c 							\
 			src/game/init_play.c				\
 			src/game/start_gameplay.c			\
 			src/game/get_pos_case.c				\
+			src/game/tower_shot.c				\
 			src/enemy/create_enemy.c 			\
 			src/enemy/enemy.c 					\
 			src/enemy/get_path.c				\
 			src/enemy/attack_castle.c			\
-			src/game/tower_shot.c				\
+			src/hud/init_hud.c 					\
+			src/hud/draw_hud.c 					\
 
 OBJS	= $(SRCS:.c=.o)
 

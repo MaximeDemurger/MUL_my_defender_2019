@@ -37,6 +37,7 @@ int open_window(utils_t *utils, game_t *game, char **av)
         capture_events(utils, game, map);
         printing_map(map, utils);
         gameplay(game, path);
+        draw_hud(game->hud, utils);
         if (!game->enemy) enemy_wave(&game->enemy, 5, utils, path);
         if (utils->life <= 0) utils->death = true;
         sfRenderWindow_display(utils->window);
