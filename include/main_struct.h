@@ -52,6 +52,8 @@ typedef struct utils {
     int x;
     int tow_pos_x;
     int tow_pos_y;
+    int open_book;
+    int clicked;
 }utils_t;
 
 #endif /* !MAIN_STRUCT */

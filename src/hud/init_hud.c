@@ -10,7 +10,7 @@
 int init_hud(hud_t *hud)
 {
     sfVector2f pos_coin = {1800, 950};
-    sfVector2f pos_coin_txt = {1800, 900};
+    sfVector2f pos_coin_txt = {1700, 900};
     sfVector2f pos_heart = {1800, 850};
     sfVector2f pos_life = {1800, 800};
 

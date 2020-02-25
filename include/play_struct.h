@@ -23,6 +23,12 @@ typedef struct play_s {
     sfSprite *range;
     sfTexture *missile_text;
     sfSprite *missile;
+    sfTexture *bookclose_text;
+    sfSprite *bookclose;
+    sfTexture *bookopen_text;
+    sfSprite *bookopen;
+    sfTexture *menubook_text;
+    sfSprite *menubook;
     sfVector2f pos_missile;
 } play_t;
 
