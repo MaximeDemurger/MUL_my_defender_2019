@@ -78,6 +78,8 @@ void enemy_wave(enemy_t **, int, utils_t *, path_t *);
 void pathfinding(enemy_t *, path_t *, utils_t *);
 path_t *get_path(char **);
 void attack_castle(enemy_t **, utils_t *);
+int next_status_diff(enemy_t *, path_t *, path_t *);
+void change_status(enemy_t *, path_t *, path_t *);
 
 /* HUD */
 int init_hud(hud_t *);

@@ -9,10 +9,10 @@
 
 void init_rect(hud_t *hud)
 {
-    hud->heart_r.left = 10;
-    hud->heart_r.top = 10;
-    hud->heart_r.width = 60;
-    hud->heart_r.height = 135;
+    hud->heart_r.left = 0;
+    hud->heart_r.top = 0;
+    hud->heart_r.width = 120;
+    hud->heart_r.height = 88;
     hud->coin_r.left = 0;
     hud->coin_r.top = 0;
     hud->coin_r.width = 56;
@@ -23,12 +23,12 @@ int init_hud(hud_t *hud)
 {
     sfVector2f pos_coin = {1800, 980};
     sfVector2f pos_coin_txt = {1700, 950};
-    sfVector2f pos_heart = {1600, 980};
+    sfVector2f pos_heart = {1520, 970};
     sfVector2f pos_life = {1400, 950};
 
     hud->coin_text = sfTexture_createFromFile("image/coin.png", NULL);
     hud->coin = sfSprite_create();
-    hud->heart_text = sfTexture_createFromFile("image/heart.png", NULL);
+    hud->heart_text = sfTexture_createFromFile("image/heart_sprite.png", NULL);
     hud->heart = sfSprite_create();
     hud->life = sfText_create();
     hud->coin_txt = sfText_create();

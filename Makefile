@@ -45,6 +45,7 @@ SRCS	= 	src/main.c 							\
 			src/enemy/create_enemy.c 			\
 			src/enemy/enemy.c 					\
 			src/enemy/get_path.c				\
+			src/enemy/enemy_movements.c 		\
 			src/enemy/attack_castle.c			\
 			src/hud/init_hud.c 					\
 			src/hud/draw_hud.c 					\

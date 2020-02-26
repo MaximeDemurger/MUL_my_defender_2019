@@ -23,9 +23,9 @@ void move_rects(utils_t *utils, hud_t *hud)
 {
     if (sfClock_getElapsedTime(utils->heart).microseconds
         / 1000000.0 >= 0.1) {
-        hud->heart_r.left += 60;
-        if (hud->heart_r.left >= 682)
-            hud->heart_r.left = 10;
+        hud->heart_r.left += 139;
+        if (hud->heart_r.left >= 1800)
+            hud->heart_r.left = 0;
         sfClock_restart(utils->heart);
     }
     if (sfClock_getElapsedTime(utils->clock).microseconds
@@ -35,6 +35,16 @@ void move_rects(utils_t *utils, hud_t *hud)
             hud->coin_r.left = 0;
         sfClock_restart(utils->clock);
     }
+}
+
+void function_caller(game_t *game, utils_t *utils, char **map, path_t *path)
+{
+        check_utils(utils, game);
+        capture_events(utils, game, map);
+        printing_map(map, utils);
+        gameplay(game, path);
+        move_rects(utils, game->hud);
+        draw_hud(game->hud, utils);
 }
 
 int open_window(utils_t *utils, game_t *game, char **av)
@@ -51,12 +61,7 @@ int open_window(utils_t *utils, game_t *game, char **av)
     //sfMusic_play(utils->song);
     enemy_wave(&game->enemy, 5, utils, path);
     while (sfRenderWindow_isOpen(utils->window)) {
-        check_utils(utils, game);
-        capture_events(utils, game, map);
-        printing_map(map, utils);
-        gameplay(game, path);
-        move_rects(utils, game->hud);
-        draw_hud(game->hud, utils);
+        function_caller(game, utils, map, path);
         if (!game->enemy) enemy_wave(&game->enemy, 5, utils, path);
         if (utils->life <= 0) utils->death = true;
         print_basement(map, utils, utils->map_pars);

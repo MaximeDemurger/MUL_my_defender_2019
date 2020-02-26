@@ -34,13 +34,13 @@ void death_menu_event(utils_t *utils)
 
 void do_death_hoover(utils_t *utils)
 {
-    sfVector2f pos1 = {825, 790};
+    sfVector2f pos1 = {825, 390};
     sfVector2f pos2 = {825, 590};
 
     if (sfMouse_getPositionRenderWindow(utils->window).x >= 850
         && sfMouse_getPositionRenderWindow(utils->window).x <= 1100
-        && sfMouse_getPositionRenderWindow(utils->window).y >= 800
-        && sfMouse_getPositionRenderWindow(utils->window).y <= 900) {
+        && sfMouse_getPositionRenderWindow(utils->window).y >= 400
+        && sfMouse_getPositionRenderWindow(utils->window).y <= 500) {
         sfSprite_setPosition(utils->hoover, pos1);
         sfRenderWindow_drawSprite(utils->window, utils->hoover, NULL);
     }
