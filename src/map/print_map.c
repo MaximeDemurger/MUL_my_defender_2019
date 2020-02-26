@@ -28,16 +28,6 @@ void check_charac(char a, utils_t *utils, map_t *map, sfVector2f pos)
     }
     if (a == '1' || a == 'N')
         check_case(map, utils, pos);
-    if (a == 'R') {
-        sfSprite_setPosition(map->rock, pos);
-        sfRenderWindow_drawSprite(utils->window, map->rock, NULL);
-    }
-    if (a == 'I') {
-        sfSprite_setPosition(map->inventory, pos);
-        sfSprite_setPosition(map->rock, pos);
-        sfRenderWindow_drawSprite(utils->window, map->rock, NULL);
-        sfRenderWindow_drawSprite(utils->window, map->inventory, NULL);
-    }
 }
 
 int print_basement(char **tab, utils_t *utils, map_t *map)

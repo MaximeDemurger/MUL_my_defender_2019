@@ -11,6 +11,7 @@
 void set_rotation(game_t *game, sfVector2f set_tow)
 {
     float y;
+    sfVector2f origin = {27, 10};
     static int pass = 0;
     int tow_pos_X = sfSprite_getPosition(game->play->tower1).x;
     int enemy_pos_X = sfSprite_getPosition(game->enemy->sprite).x;
@@ -20,6 +21,7 @@ void set_rotation(game_t *game, sfVector2f set_tow)
     double b = enemy_pos_Y - tow_pos_Y;
 
     y = -atan2(a, b) * 180 / 3.14;
+    sfSprite_setOrigin(game->play->missile, origin);
     sfSprite_setRotation(game->play->tower1, y);
     if (pass == 0) {
         game->play->pos_missile = set_tow;
@@ -30,32 +32,33 @@ void set_rotation(game_t *game, sfVector2f set_tow)
 
 void range_tower(game_t *game, sfVector2f set_tow)
 {
-    sfVector2f tower_pos = sfSprite_getPosition(game->play->tower1);
+    sfVector2f tower_pos = sfSprite_getPosition(game->play->range);
     sfVector2f enemy_pos = sfSprite_getPosition(game->enemy->sprite);
     
-    if ((tower_pos.x - 250 < enemy_pos.x ||
-        tower_pos.x + 250 < enemy_pos.x) &&
-        (tower_pos.y - 250 > enemy_pos.y ||
-        tower_pos.y + 250 > enemy_pos.y)) {
+    if ((enemy_pos.x < tower_pos.x - 500 ||
+        enemy_pos.x > tower_pos.x) ||
+        (enemy_pos.y < tower_pos.y - 500 ||
+        enemy_pos.y > tower_pos.y));
         set_rotation(game, set_tow);
-    } 
 }
 
 void tower_onset(game_t *game, sfVector2f pos, sfVector2f set_tow)
 {
-    sfVector2f origin = {64, 67.5};
-    static int i = 0;
+    sfVector2f origin = {45, 65};
+    sfVector2f range = {set_tow.x, set_tow.y};
 
-    set_tow.x += 68;
-    set_tow.y += 68;
+    set_tow.x += 64;
+    set_tow.y += 70;
+    range.x -= 185;
+    range.y -= 185;
     if (game->utils->click_on_tower == 2) {
         sfSprite_setOrigin(game->play->tower1, origin);
         range_tower(game, set_tow);
+        sfSprite_setPosition(game->play->range, range);
+        sfRenderWindow_drawSprite(game->utils->window,
+                                    game->play->range, NULL);
         sfSprite_setPosition(game->play->tower1, set_tow);
         sfRenderWindow_drawSprite(game->utils->window, game->play->tower1,
-                                                                        NULL);                                      
-        sfSprite_setPosition(game->play->select_tow, pos);
-        sfRenderWindow_drawSprite(game->utils->window, game->play->select_tow,
                                                                         NULL);
     }
 }

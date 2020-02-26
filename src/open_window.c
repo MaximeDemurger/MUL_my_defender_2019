@@ -42,7 +42,7 @@ void function_caller(game_t *game, utils_t *utils, char **map, path_t *path)
         check_utils(utils, game);
         capture_events(utils, game, map);
         printing_map(map, utils);
-        gameplay(game, path);
+        gameplay(game, path, map);
         move_rects(utils, game->hud);
         draw_hud(game->hud, utils);
 }

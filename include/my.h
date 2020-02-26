@@ -68,7 +68,7 @@ int print_basement(char **tab, utils_t *utils, map_t *map);
 /* GAME */
 int get_pos_case(utils_t *utils, char **map);
 int init_play(play_t *play);
-void gameplay(game_t *game, path_t *);
+void gameplay(game_t *game, path_t *, char **map);
 void range_tower(game_t *game, sfVector2f set_tow);
 void tower_onset(game_t *game, sfVector2f pos, sfVector2f set_tow);
 void tower_shot(game_t *game);
