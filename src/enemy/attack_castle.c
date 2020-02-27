@@ -26,8 +26,8 @@ void clear_enemys(enemy_t **ene)
     while (*ene) {
         free_ene = *ene;
         sfSprite_destroy((*ene)->sprite);
-        free(free_ene);
         (*ene) = (*ene)->next;
+        free(free_ene);
     }
 }
 
