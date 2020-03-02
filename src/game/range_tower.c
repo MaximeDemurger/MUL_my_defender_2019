@@ -35,10 +35,10 @@ void range_tower(game_t *game, sfVector2f set_tow)
     sfVector2f tower_pos = sfSprite_getPosition(game->play->range);
     sfVector2f enemy_pos = sfSprite_getPosition(game->enemy->sprite);
     
-    if (enemy_pos.x < tower_pos.x - 500 &&
-        enemy_pos.x > tower_pos.x + 500 &&
-        enemy_pos.y < tower_pos.y - 500 &&
-        enemy_pos.y > tower_pos.y + 500)
+    if (enemy_pos.x > tower_pos.x &&
+        enemy_pos.x < tower_pos.x + 500 &&
+        enemy_pos.y > tower_pos.y &&
+        enemy_pos.y < tower_pos.y + 500)
         set_rotation(game, set_tow);
 }
 

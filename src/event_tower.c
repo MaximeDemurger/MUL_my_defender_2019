@@ -49,7 +49,6 @@ int check_selected_tower(utils_t *utils, char **tab, int line, int col)
     if (utils->click_on_tower == 1)
         result_case_good1(utils, line, col, tab);
     if (utils->click_on_tower2 == 1);
-    return 0;
 }
 
 int check_pos(utils_t *utils, int mouse_x, int mouse_y, char **tab)
