@@ -56,6 +56,8 @@ char *get_next_line(int fd);
 /* MAIN GAME */
 int open_window(utils_t *, game_t *, char **av);
 void capture_events(utils_t *, game_t *, char **tab);
+int check_pos(utils_t *utils, int mouse_x, int mouse_y, char **tab);
+
 
 /* MAP GAME */
 char **gettingMap_fromFile(char **av);
@@ -72,6 +74,10 @@ void gameplay(game_t *game, path_t *, char **map);
 void range_tower(game_t *game, sfVector2f set_tow);
 void tower_onset(game_t *game, sfVector2f pos, sfVector2f set_tow);
 void tower_shot(game_t *game);
+void put_tower1(game_t *game, sfVector2f pos, sfVector2f mouse);
+void put_tower2(game_t *game);
+void put_tower3(game_t *game);
+void put_tower4(game_t *game);
 
 /* ENEMY */
 void enemy_wave(enemy_t **, int, utils_t *, path_t *);

@@ -46,6 +46,9 @@ typedef struct utils {
     bool from_strt;
     map_t *map_pars;
     int click_on_tower;
+    int click_on_tower2;
+    int click_on_tower3;
+    int click_on_tower4;
     int line;
     char **case_pos;
     int wave;

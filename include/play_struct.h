@@ -19,6 +19,18 @@ typedef struct play_s {
     sfSprite *tower1;
     sfTexture *select_tow_text;
     sfSprite *select_tow;
+    sfTexture *tower2_text;
+    sfSprite *tower2;
+    sfTexture *select2_tow_text;
+    sfSprite *select2_tow;
+    sfTexture *tower3_text;
+    sfSprite *tower3;
+    sfTexture *select3_tow_text;
+    sfSprite *select3_tow;
+    sfTexture *tower4_text;
+    sfSprite *tower4;
+    sfTexture *select4_tow_text;
+    sfSprite *select4_tow;
     sfTexture *range_text;
     sfSprite *range;
     sfTexture *missile_text;
