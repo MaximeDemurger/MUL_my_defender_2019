@@ -37,6 +37,7 @@ MAP =		src/map/init_map.c					\
 			src/game/range_tower.c				\
 
 GAME =		src/game/init_play.c				\
+			src/game/tower_set.c				\
 			src/game/start_gameplay.c			\
 			src/game/get_pos_case.c				\
 			src/game/tower_shot.c				\
@@ -53,6 +54,7 @@ HUD =		src/hud/init_hud.c 					\
 SRCS	= 	src/main.c 							\
 			src/open_window.c 					\
 			src/capture_event.c 				\
+			src/event_tower.c					\
 			src/destroy/destroy_game.c 			\
 			src/destroy/destroy_menu.c 			\
 			$(HUD)								\
