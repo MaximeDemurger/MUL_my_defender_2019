@@ -32,30 +32,30 @@ void check_which_tower(game_t *game, int mouse_x, int mouse_y)
     sfVector2f tower3 = sfSprite_getPosition(game->play->tower3);
     sfVector2f tower4 = sfSprite_getPosition(game->play->tower4);
 
-    if ((mouse_x > tower1.x - 80 && mouse_x < tower1.x + 80 &&
-        mouse_y > tower1.y - 80 && mouse_y < tower1.y + 80) &&
-        game->utils->click_on_tower == 0) {
+    if ((mouse_x > tower1.x && mouse_x < tower1.x + 80 &&
+        mouse_y > tower1.y && mouse_y < tower1.y + 80) &&
+        game->utils->click_on_tower == 0 && game->utils->money >= 20) {
         game->utils->click_on_tower = 1;
-    } if ((mouse_x > tower2.x - 80 && mouse_x < tower2.x + 80 &&
-        mouse_y > tower2.y - 80 && mouse_y < tower2.y + 80) &&
-        game->utils->click_on_tower2 == 0) {
+    } if ((mouse_x > tower2.x && mouse_x < tower2.x + 80 &&
+        mouse_y > tower2.y && mouse_y < tower2.y + 80) &&
+        game->utils->click_on_tower2 == 0 && game->utils->money >= 40) {
         game->utils->click_on_tower2 = 1;
-    } if ((mouse_x > tower1.x - 80 && mouse_x < tower1.x + 80 &&
-        mouse_y > tower1.y - 80 && mouse_y < tower1.y + 80) &&
-        game->utils->click_on_tower3 == 0) {
+    } if ((mouse_x > tower3.x && mouse_x < tower3.x + 80 &&
+        mouse_y > tower3.y && mouse_y < tower3.y + 80) &&
+        game->utils->click_on_tower3 == 0 && game->utils->money >= 50) {
         game->utils->click_on_tower3 = 1;
-    } if ((mouse_x > tower4.x - 80 && mouse_x < tower4.x + 80 &&
-        mouse_y > tower4.y - 80 && mouse_y < tower4.y + 80) &&
-        game->utils->click_on_tower4 == 0) {
+    } if ((mouse_x > tower4.x && mouse_x < tower4.x + 80 &&
+        mouse_y > tower4.y && mouse_y < tower4.y + 80) &&
+        game->utils->click_on_tower4 == 0 && game->utils->money >= 70) {
         game->utils->click_on_tower4 = 1;
     }
 }
 
 void get_tower_pos(game_t *game)
 {
-    game->utils->tower2 = sfSprite_getPosition(game->play->tower2);
-    game->utils->tower3 = sfSprite_getPosition(game->play->tower3);
-    game->utils->tower4 = sfSprite_getPosition(game->play->tower4);
+    game->play->tower2_pos = sfSprite_getPosition(game->play->tower2);
+    game->play->tower3_pos = sfSprite_getPosition(game->play->tower3);
+    game->play->tower4_pos = sfSprite_getPosition(game->play->tower4);
 }
 
 void capture_events(utils_t *utils, game_t *game, char **tab)
@@ -73,7 +73,7 @@ void capture_events(utils_t *utils, game_t *game, char **tab)
         check_which_tower(game, mouse_x, mouse_y);
         if (utils->click_on_tower == 1 || utils->click_on_tower2 == 1 ||
             utils->click_on_tower3 == 1 || utils->click_on_tower4 == 1)
-            check_pos(utils, mouse_x, mouse_y, tab);
+            check_pos(game, mouse_x, mouse_y, tab);
         click_book(game, mouse_x, mouse_y);
     }
 }

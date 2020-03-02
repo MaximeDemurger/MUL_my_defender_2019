@@ -35,22 +35,24 @@ MAP =		src/map/init_map.c					\
 			src/map/print_map.c					\
 			src/map/checking_map.c				\
 
-GAME =		src/game/init_play.c				\
-			src/game/tower_set.c				\
-			src/game/range_tower.c				\
-			src/game/start_gameplay.c			\
-			src/game/get_pos_case.c				\
-			src/game/tower1_file.c				\
-			src/game/tower2_file.c				\
-			src/game/tower3_file.c				\
-			src/game/tower4_file.c				\
-			src/game/tower_shot.c				\
+GAME =		src/game/init_play.c							\
+			src/game/find_line_col.c						\
+			src/game/start_gameplay.c						\
+			src/game/get_pos_case.c							\
+			src/game/tower_folder/tower_set.c				\
+			src/game/tower_folder/range_tower.c				\
+			src/game/tower_folder/tower1_file.c				\
+			src/game/tower_folder/tower2_file.c				\
+			src/game/tower_folder/tower3_file.c				\
+			src/game/tower_folder/tower4_file.c				\
+			src/game/tower_folder/tower_shot.c				\
 
 ENEMY =		src/enemy/create_enemy.c 			\
 			src/enemy/enemy.c 					\
 			src/enemy/get_path.c				\
 			src/enemy/enemy_movements.c 		\
 			src/enemy/attack_castle.c			\
+			src/enemy/enemy_hit.c				\
 
 HUD =		src/hud/init_hud.c 					\
 			src/hud/draw_hud.c 					\

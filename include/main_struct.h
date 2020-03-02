@@ -54,11 +54,6 @@ typedef struct utils {
     int wave;
     int nb_ene;
     int x;
-    int tow_pos_x;
-    int tow_pos_y;
-    sfVector2f tower2;
-    sfVector2f tower3;
-    sfVector2f tower4;
     int open_book;
     int clicked;
 }utils_t;
