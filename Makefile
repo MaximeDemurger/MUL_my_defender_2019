@@ -34,10 +34,10 @@ MAP =		src/map/init_map.c					\
 			src/map/getting_map.c				\
 			src/map/print_map.c					\
 			src/map/checking_map.c				\
-			src/game/range_tower.c				\
 
 GAME =		src/game/init_play.c				\
 			src/game/tower_set.c				\
+			src/game/range_tower.c				\
 			src/game/start_gameplay.c			\
 			src/game/get_pos_case.c				\
 			src/game/tower_shot.c				\
