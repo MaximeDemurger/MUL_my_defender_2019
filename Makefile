@@ -40,6 +40,10 @@ GAME =		src/game/init_play.c				\
 			src/game/range_tower.c				\
 			src/game/start_gameplay.c			\
 			src/game/get_pos_case.c				\
+			src/game/tower1_file.c				\
+			src/game/tower2_file.c				\
+			src/game/tower3_file.c				\
+			src/game/tower4_file.c				\
 			src/game/tower_shot.c				\
 
 ENEMY =		src/enemy/create_enemy.c 			\

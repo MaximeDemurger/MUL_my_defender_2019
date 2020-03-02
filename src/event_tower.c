@@ -22,33 +22,16 @@ void find_line_col(utils_t *utils, int *line, int *col)
     }
 }
 
-int check_mouse_case(int mouse_x, int mouse_y, utils_t *utils)
-{
-    if (mouse_x < my_atoi(utils->case_pos[utils->line]) - 120 &&
-        mouse_x > my_atoi(utils->case_pos[utils->line]) + 120 &&
-        mouse_y < my_atoi(utils->case_pos[utils->line + 1]) &&
-        mouse_y > my_atoi(utils->case_pos[utils->line + 1]) + 120 &&
-        utils->click_on_tower == 1) {
-        utils->click_on_tower = 0;
-    }
-}
-
-int result_case_good1(utils_t *utils, int line, int col, char **tab)
-{
-    find_line_col(utils, &line, &col);
-    utils->tow_pos_x = my_atoi(utils->case_pos[utils->line]);
-    utils->tow_pos_y = my_atoi(utils->case_pos[utils->line + 1]);
-    get_pos_case(utils, tab);
-    utils->money -= 20;
-    utils->click_on_tower = 2;
-    return 1;
-}
-
 int check_selected_tower(utils_t *utils, char **tab, int line, int col)
 {
     if (utils->click_on_tower == 1)
         result_case_good1(utils, line, col, tab);
-    if (utils->click_on_tower2 == 1);
+    if (utils->click_on_tower2 == 1)
+        result_case_good2(utils, line, col, tab);
+    if (utils->click_on_tower3 == 1)
+        result_case_good3(utils, line , col, tab);
+    if (utils->click_on_tower4 == 1)
+        result_case_good4(utils, line , col, tab);
 }
 
 int check_pos(utils_t *utils, int mouse_x, int mouse_y, char **tab)
