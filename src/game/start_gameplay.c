@@ -61,7 +61,7 @@ void gameplay(game_t *game, path_t *path, char **tab)
     put_book(game);
     print_inventory(tab, game->utils);
     put_tower1(game, pos, mouse);
-    put_tower2(game);
-    put_tower3(game);
-    put_tower4(game);
+    put_tower2(game, mouse);
+    put_tower3(game, mouse);
+    put_tower4(game, mouse);
 }

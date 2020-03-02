@@ -25,24 +25,54 @@ void click_book(game_t *game, int mouse_x, int mouse_y)
     game->utils->clicked++;
 }
 
+void check_which_tower(game_t *game, int mouse_x, int mouse_y)
+{
+    sfVector2f tower1 = sfSprite_getPosition(game->play->tower1);
+    sfVector2f tower2 = sfSprite_getPosition(game->play->tower2);
+    sfVector2f tower3 = sfSprite_getPosition(game->play->tower3);
+    sfVector2f tower4 = sfSprite_getPosition(game->play->tower4);
+
+    if ((mouse_x > tower1.x - 80 && mouse_x < tower1.x + 80 &&
+        mouse_y > tower1.y - 80 && mouse_y < tower1.y + 80) &&
+        game->utils->click_on_tower == 0) {
+        game->utils->click_on_tower = 1;
+    } if ((mouse_x > tower2.x - 80 && mouse_x < tower2.x + 80 &&
+        mouse_y > tower2.y - 80 && mouse_y < tower2.y + 80) &&
+        game->utils->click_on_tower2 == 0) {
+        game->utils->click_on_tower2 = 1;
+    } if ((mouse_x > tower1.x - 80 && mouse_x < tower1.x + 80 &&
+        mouse_y > tower1.y - 80 && mouse_y < tower1.y + 80) &&
+        game->utils->click_on_tower3 == 0) {
+        game->utils->click_on_tower3 = 1;
+    } if ((mouse_x > tower4.x - 80 && mouse_x < tower4.x + 80 &&
+        mouse_y > tower4.y - 80 && mouse_y < tower4.y + 80) &&
+        game->utils->click_on_tower4 == 0) {
+        game->utils->click_on_tower4 = 1;
+    }
+}
+
+void get_tower_pos(game_t *game)
+{
+    game->utils->tower2 = sfSprite_getPosition(game->play->tower2);
+    game->utils->tower3 = sfSprite_getPosition(game->play->tower3);
+    game->utils->tower4 = sfSprite_getPosition(game->play->tower4);
+}
+
 void capture_events(utils_t *utils, game_t *game, char **tab)
 {
     int mouse_y = utils->event.mouseButton.y;
     int mouse_x = utils->event.mouseButton.x;
-    int sprite_x = sfSprite_getPosition(game->play->tower1).x;
-    int sprite_y = sfSprite_getPosition(game->play->tower1).y;
 
+    get_tower_pos(game);
     while (sfRenderWindow_pollEvent(utils->window, &utils->event)) {
         if (utils->event.type == sfEvtClosed)
             sfRenderWindow_close(utils->window);
         if (utils->event.type == sfEvtKeyPressed &&
             utils->event.key.code == sfKeyEscape)
             utils->pause = true;
-        if ((mouse_x > sprite_x - 80 && mouse_x < sprite_x + 80 &&
-            mouse_y > sprite_y - 80 && mouse_y < sprite_y + 80) &&
-            utils->click_on_tower == 0) {
-            utils->click_on_tower = 1;
-        } if (utils->click_on_tower == 1)
+        check_which_tower(game, mouse_x, mouse_y);
+        if (utils->click_on_tower == 1 || utils->click_on_tower2 == 1 ||
+            utils->click_on_tower3 == 1 || utils->click_on_tower4 == 1)
             check_pos(utils, mouse_x, mouse_y, tab);
         click_book(game, mouse_x, mouse_y);
     }
