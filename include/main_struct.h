@@ -26,6 +26,7 @@ typedef struct game_s {
     struct path_s *path;
     struct hud_s *hud;
     struct all_maps *all_maps;
+    struct selection *select;
 }game_t;
 
 typedef struct utils {
@@ -45,6 +46,7 @@ typedef struct utils {
     bool pause;
     bool settings;
     bool from_strt;
+    bool selection;
     map_t *map_pars;
     int click_on_tower1;
     int click_on_tower2;

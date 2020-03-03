@@ -39,6 +39,8 @@ void settings_menu(utils_t *, settings_t *);
 void death_menu(utils_t *, deathmenu_t *);
 void starting_menu(utils_t *, strtmenu_t *);
 void pause_menu(utils_t *, pausemenu_t *);
+int init_select(selection_t *);
+char *show_map_options(utils_t *, selection_t *, all_map_t *);
 
 /* DESTROY */
 void destroy_game(game_t *);
@@ -62,13 +64,13 @@ int check_pos(game_t *game, int mouse_x, int mouse_y, char **tab);
 
 
 /* MAP GAME */
-char **gettingMap_fromFile(char **av);
-int init_map(map_t *map, char **av);
+char **gettingMap_fromFile(char *);
+int init_map(map_t *map);
 void printing_map(char **tab, utils_t *utils);
 char **normal_map(void);
 int checking_map(char const *str);
 int print_basement(char **tab, utils_t *utils, map_t *map);
-int get_maps(all_map_t *, char const *);
+int get_maps(all_map_t **, char *);
 
 /* GAME */
 int get_pos_case(utils_t *utils, char **map);

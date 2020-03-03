@@ -9,16 +9,16 @@
 #include <fcntl.h>
 #include "my.h"
 
-char **gettingMap_fromFile(char **av)
+char **gettingMap_fromFile(char *filepath)
 {
     char **line = malloc(sizeof(char *) * 9);
     char *str = NULL;
     int i = 0;
     int fd = 0;
 
-    if (av[1] == NULL || !line)
+    if (!filepath || !line)
         return NULL;
-    fd = open(av[1], O_RDONLY);
+    fd = open(filepath, O_RDONLY);
     if (fd == -1)
         return NULL;
     while ((str = get_next_line(fd))) {

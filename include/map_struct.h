@@ -31,6 +31,8 @@ typedef struct map_s {
 
 typedef struct all_maps {
     char *filename;
+    sfTexture *texture;
+    sfSprite *sprite;
     struct all_maps *next;
 } all_map_t;
 

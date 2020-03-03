@@ -12,8 +12,8 @@ enemy_t *kill_enemy(enemy_t *ene)
     enemy_t *tmp = ene;
 
     sfSprite_destroy(ene->sprite);
-    ene = ene->next;
     free(tmp);
+    ene = ene->next;
     return ene;
 }
 

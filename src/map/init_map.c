@@ -5,7 +5,7 @@
 ** init map
 */
 
-#include "map_struct.h"
+#include "my.h"
 
 void set_texture_map(map_t *map)
 {

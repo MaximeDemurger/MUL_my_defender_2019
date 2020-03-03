@@ -51,6 +51,16 @@ typedef struct pause_menu {
     sfSprite *m_menu;
 }pausemenu_t;
 
+typedef struct selection {
+    sfTexture *back_text;
+    sfSprite *back;
+    sfFont *font;
+    sfText *map1;
+    sfText *map2;
+    sfText *map3;
+    sfText *map4;
+}selection_t;
+
 typedef struct death_menu {
     sfText *text;
     sfFont *font;

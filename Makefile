@@ -20,6 +20,8 @@ MENU = 		src/menu/init_start.c 				\
 			src/menu/death_menu.c 				\
 			src/menu/init_settings.c 			\
 			src/menu/settings_menu.c 			\
+			src/menu/init_select.c 				\
+			src/menu/show_map_options.c 		\
 
 MY =		src/my/get_next_line.c				\
 			src/my/my_strdup.c					\

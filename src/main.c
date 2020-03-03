@@ -17,7 +17,8 @@ int init_utils(utils_t *utils)
     utils->life = 100;
     utils->money = 30;
     utils->wave = 0;
-    utils->strt_menu = true;
+    utils->strt_menu = false;
+    utils->selection = true;
     utils->death = false;
     utils->pause = false;
     utils->settings = false;
@@ -44,13 +45,16 @@ int init_game(game_t *game)
     game->settings = malloc(sizeof(settings_t));
     game->play = malloc(sizeof(play_t));
     game->hud = malloc(sizeof(hud_t));
+    game->select = malloc(sizeof(selection_t));
     if (!game->start || !game->pause || !game->death || !game->hud
-        || !game->utils || !game->settings || !game->play) {
+        || !game->utils || !game->settings || !game->play
+        || !game->select) {
         return 1;
     }
     if (init_utils(game->utils) || init_start(game->start, game->pause)
         || init_death(game->death) || init_settings(game->settings)
-        || init_play(game->play) || init_hud(game->hud)) {
+        || init_play(game->play) || init_hud(game->hud)
+        || init_select(game->select)) {
         return 1;
     }
     return 0;
@@ -65,7 +69,7 @@ int main(int ac, char **av)
         print_help();
     if (!game) return 84;
     game->all_maps = NULL;
-    if (init_game(game)) {
+    if (init_game(game) || get_maps(&game->all_maps, av[1])) {
         destroy_game(game);
         return 84;
     } game->utils->window = sfRenderWindow_create(view_mode, "MY DEFENDER",
