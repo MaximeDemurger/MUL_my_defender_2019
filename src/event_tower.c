@@ -7,47 +7,51 @@
 
 #include "my.h"
 
-void find_line_col(utils_t *utils, int *line, int *col)
+int check_mouse_case(int mouse_x, int mouse_y, utils_t *utils)
 {
-    int x = 0;
-    int y = 0;
-
-    while (y < my_atoi(utils->case_pos[utils->line + 1])) {
-        y += 135;
-        *line += 1;
+    if (mouse_x < my_atoi(utils->case_pos[utils->line]) - 120 &&
+        mouse_x > my_atoi(utils->case_pos[utils->line]) + 120 &&
+        mouse_y < my_atoi(utils->case_pos[utils->line + 1]) &&
+        mouse_y > my_atoi(utils->case_pos[utils->line + 1]) + 120) {
+        if (utils->click_on_tower1 == 1)
+            utils->click_on_tower1 = 0;
+        if (utils->click_on_tower2 == 1)
+            utils->click_on_tower2 = 0;
+        if (utils->click_on_tower3 == 1)
+            utils->click_on_tower3 = 0;
+        if (utils->click_on_tower4 == 1)
+            utils->click_on_tower4 = 0;
     }
-    while (x < my_atoi(utils->case_pos[utils->line])) {
-        x += 128;
-        *col += 1;
-    }
+    return 0;
 }
 
-int check_selected_tower(utils_t *utils, char **tab, int line, int col)
+int check_selected_tower(game_t *game, char **tab, int line, int col)
 {
-    if (utils->click_on_tower == 1)
-        result_case_good1(utils, line, col, tab);
-    if (utils->click_on_tower2 == 1)
-        result_case_good2(utils, line, col, tab);
-    if (utils->click_on_tower3 == 1)
-        result_case_good3(utils, line , col, tab);
-    if (utils->click_on_tower4 == 1)
-        result_case_good4(utils, line , col, tab);
+    if (game->utils->click_on_tower1 == 1)
+        result_case_good1(game, line, col, tab);
+    if (game->utils->click_on_tower2 == 1)
+        result_case_good2(game, line, col, tab);
+    if (game->utils->click_on_tower3 == 1)
+        result_case_good3(game, line , col, tab);
+    if (game->utils->click_on_tower4 == 1)
+        result_case_good4(game, line , col, tab);
+    return 0;
 }
 
-int check_pos(utils_t *utils, int mouse_x, int mouse_y, char **tab)
+int check_pos(game_t *game, int mouse_x, int mouse_y, char **tab)
 {
-    utils->line = 0;
+    game->utils->line = 0;
     int line = 0;
     int col = 0;
 
-    while (utils->case_pos[utils->line]) {
-        if (mouse_x > my_atoi(utils->case_pos[utils->line]) - 120 &&
-            mouse_x < my_atoi(utils->case_pos[utils->line]) + 120 &&
-            mouse_y > my_atoi(utils->case_pos[utils->line + 1]) &&
-            mouse_y < my_atoi(utils->case_pos[utils->line + 1]) + 120)
-            check_selected_tower(utils, tab, line, col);
-        check_mouse_case(mouse_x, mouse_y, utils);
-        utils->line += 2;
+    while (game->utils->case_pos[game->utils->line]) {
+        if (mouse_x > my_atoi(game->utils->case_pos[game->utils->line]) - 120 &&
+            mouse_x < my_atoi(game->utils->case_pos[game->utils->line]) + 120 &&
+            mouse_y > my_atoi(game->utils->case_pos[game->utils->line + 1]) &&
+            mouse_y < my_atoi(game->utils->case_pos[game->utils->line + 1]) + 120)
+            check_selected_tower(game, tab, line, col);
+        check_mouse_case(mouse_x, mouse_y, game->utils);
+        game->utils->line += 2;
     }
     return 0;
 }

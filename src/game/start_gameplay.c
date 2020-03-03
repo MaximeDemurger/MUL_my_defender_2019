@@ -16,10 +16,13 @@ void put_book(game_t *game)
     sfSprite_setPosition(game->play->bookclose, pos_book);
     sfSprite_setPosition(game->play->bookopen, pos_book);
     if (game->utils->open_book == 0)
-        sfRenderWindow_drawSprite(game->utils->window, game->play->bookclose, NULL);
+        sfRenderWindow_drawSprite(game->utils->window, game->play->bookclose,
+                                                                        NULL);
     else if (game->utils->open_book == 1) {
-        sfRenderWindow_drawSprite(game->utils->window, game->play->bookopen, NULL);
-        sfRenderWindow_drawSprite(game->utils->window, game->play->menubook, NULL);
+        sfRenderWindow_drawSprite(game->utils->window, game->play->bookopen,
+                                                                        NULL);
+        sfRenderWindow_drawSprite(game->utils->window, game->play->menubook,
+                                                                        NULL);
     }
 }
 
@@ -32,13 +35,16 @@ void print_inventory(char **tab, utils_t *utils)
     while (tab[7][col]) {
         if (tab[7][col] == 'R') {
             sfSprite_setPosition(utils->map_pars->rock, pos);
-            sfRenderWindow_drawSprite(utils->window, utils->map_pars->rock, NULL);
+            sfRenderWindow_drawSprite(utils->window, utils->map_pars->rock,
+                                                                    NULL);
         }
         if (tab[7][col] == 'I') {
             sfSprite_setPosition(utils->map_pars->inventory, pos);
             sfSprite_setPosition(utils->map_pars->rock, pos);
-            sfRenderWindow_drawSprite(utils->window, utils->map_pars->rock, NULL);
-            sfRenderWindow_drawSprite(utils->window, utils->map_pars->inventory, NULL);
+            sfRenderWindow_drawSprite(utils->window, utils->map_pars->rock,
+                                                                    NULL);
+            sfRenderWindow_drawSprite(utils->window,
+                                        utils->map_pars->inventory, NULL);
         }
         pos.x += 128;
         col++;
@@ -49,11 +55,9 @@ void gameplay(game_t *game, path_t *path, char **tab)
 {
     int x = sfMouse_getPositionRenderWindow(game->utils->window).x;
     int y = sfMouse_getPositionRenderWindow(game->utils->window).y;
-    int in_pos_x = game->utils->tow_pos_x;
-    int in_pos_y = game->utils->tow_pos_y;
     sfVector2f pos = {660, 945};
     sfVector2f mouse = {x - 32, y - 32};
-    sfVector2f set_tow = {in_pos_x, in_pos_y};
+    sfVector2f set_tow = {game->play->tow1_pos_x, game->play->tow1_pos_y};
 
     tower_onset(game, pos, set_tow);
     attack_castle(&game->enemy, game->utils);

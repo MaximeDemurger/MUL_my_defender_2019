@@ -46,7 +46,7 @@ typedef struct utils {
     bool settings;
     bool from_strt;
     map_t *map_pars;
-    int click_on_tower;
+    int click_on_tower1;
     int click_on_tower2;
     int click_on_tower3;
     int click_on_tower4;
@@ -55,11 +55,6 @@ typedef struct utils {
     int wave;
     int nb_ene;
     int x;
-    int tow_pos_x;
-    int tow_pos_y;
-    sfVector2f tower2;
-    sfVector2f tower3;
-    sfVector2f tower4;
     int open_book;
     int clicked;
 }utils_t;

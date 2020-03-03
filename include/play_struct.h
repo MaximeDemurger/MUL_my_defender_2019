@@ -42,6 +42,11 @@ typedef struct play_s {
     sfTexture *menubook_text;
     sfSprite *menubook;
     sfVector2f pos_missile;
+    int tow1_pos_x;
+    int tow1_pos_y;
+    sfVector2f tower2_pos;
+    sfVector2f tower3_pos;
+    sfVector2f tower4_pos;
 } play_t;
 
 #endif /* !PLAY_H_ */

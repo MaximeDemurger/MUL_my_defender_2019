@@ -58,7 +58,7 @@ char *concat(char *, char *);
 /* MAIN GAME */
 int open_window(utils_t *, game_t *, char **av);
 void capture_events(utils_t *, game_t *, char **tab);
-int check_pos(utils_t *utils, int mouse_x, int mouse_y, char **tab);
+int check_pos(game_t *game, int mouse_x, int mouse_y, char **tab);
 
 
 /* MAP GAME */
@@ -73,10 +73,10 @@ int get_maps(all_map_t *, char const *);
 /* GAME */
 int get_pos_case(utils_t *utils, char **map);
 int init_play(play_t *play);
-int result_case_good1(utils_t *utils, int line, int col, char **tab);
-int result_case_good2(utils_t *utils, int line, int col, char **tab);
-int result_case_good3(utils_t *utils, int line, int col, char **tab);
-int result_case_good4(utils_t *utils, int line, int col, char **tab);
+int result_case_good1(game_t *game, int line, int col, char **tab);
+int result_case_good2(game_t *game, int line, int col, char **tab);
+int result_case_good3(game_t *game, int line, int col, char **tab);
+int result_case_good4(game_t *game, int line, int col, char **tab);
 int check_mouse_case(int mouse_x, int mouse_y, utils_t *utils);
 void find_line_col(utils_t *utils, int *line, int *col);
 void gameplay(game_t *game, path_t *, char **map);
@@ -91,6 +91,7 @@ void put_tower4(game_t *game, sfVector2f mouse);
 /* ENEMY */
 void enemy_wave(enemy_t **, int, utils_t *, path_t *);
 void pathfinding(enemy_t *, path_t *, utils_t *);
+enemy_t *enemy_hit(enemy_t *ene, int damage);
 path_t *get_path(char **);
 void attack_castle(enemy_t **, utils_t *);
 int next_status_diff(enemy_t *, path_t *, path_t *);
