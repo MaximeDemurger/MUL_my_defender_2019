@@ -5,17 +5,7 @@
 ** my evil str
 */
 
-#include <stdio.h>
-
-int my_len(char *str)
-{
-    int i = 0;
-
-    while (str[i]) {
-        i++;
-    }
-    return i;
-}
+#include "my.h"
 
 char *my_revstr(char *str)
 {
@@ -25,7 +15,7 @@ char *my_revstr(char *str)
 
     if (!str)
         return NULL;
-    end = my_len(str) - 1;
+    end = my_strlen(str) - 1;
     while (start < end) {
         tempo = str[start];
         str[start] = str[end];

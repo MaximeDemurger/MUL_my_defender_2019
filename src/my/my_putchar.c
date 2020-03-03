@@ -7,7 +7,9 @@
 
 #include "my.h"
 
-void my_putchar(char c)
+int my_putchar(char c)
 {
-    write(1, &c, 1);
+    if (write(1, &c, 1) == -1)
+        return 84;
+    return 0;
 }

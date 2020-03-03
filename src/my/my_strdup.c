@@ -5,16 +5,14 @@
 ** my_strdup
 */
 
-#include <stdlib.h>
-
-int my_strlen(char const *str);
+#include "my.h"
 
 char *my_strdup(char const *str)
 {
     char *dest = NULL;
     int i = 0;
 
-    if (str == NULL)
+    if (!str)
         return NULL;
     dest = malloc(sizeof(char) * (my_strlen(str) + 1));
     if (!dest)

@@ -14,6 +14,8 @@ char *concat(char *fst_str, char *scd_str)
     int count = 0;
     int index = 0;
 
+    if (!fst_str || !scd_str || !dest)
+        return NULL;
     while (fst_str[count] != '\0') {
         dest[index] = fst_str[count];
         index++;

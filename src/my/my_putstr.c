@@ -5,14 +5,18 @@
 ** my putstr
 */
 
-void my_putchar(char c);
+#include "my.h"
 
-void my_putstr(char const *str)
+int my_putstr(char const *str)
 {
     int i = 0;
 
+    if (!str)
+        return 84;
     while (str[i]) {
-        my_putchar(str[i]);
+        if (my_putchar(str[i]))
+            return 84;
         i++;
     }
+    return 0;
 }

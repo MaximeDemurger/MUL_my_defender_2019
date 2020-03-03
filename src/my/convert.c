@@ -23,6 +23,8 @@ char *convert_to_string(int nb)
     char *string = malloc(sizeof(char) * int_len(nb) + 1);
     int i = 0;
 
+    if (!string)
+        return NULL;
     if (nb <= 0) {
         return ("0");
     }
