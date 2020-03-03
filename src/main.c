@@ -63,8 +63,8 @@ int main(int ac, char **av)
 
     if (ac == 2 && av[1][0] == '-' && av[1][1] == 'h')
         print_help();
-    if (!game)
-        return 84;
+    if (!game) return 84;
+    game->all_maps = NULL;
     if (init_game(game)) {
         destroy_game(game);
         return 84;

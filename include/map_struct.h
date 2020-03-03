@@ -29,5 +29,10 @@ typedef struct map_s {
     sfSprite *basement;
 } map_t;
 
+typedef struct all_maps {
+    char *filename;
+    struct all_maps *next;
+} all_map_t;
+
 
 #endif /* !MAP_STRUCT_ */

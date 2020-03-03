@@ -7,7 +7,7 @@
 
 NAME	= my_defender
 
-CC	= gcc -Wno-deprecated
+CC	= gcc
 
 RM	= rm -f
 
@@ -29,11 +29,13 @@ MY =		src/my/get_next_line.c				\
 			src/my/my_putstr.c					\
 			src/my/convert.c					\
 			src/my/my_revstr.c 					\
+			src/my/concat.c 					\
 
 MAP =		src/map/init_map.c					\
 			src/map/getting_map.c				\
 			src/map/print_map.c					\
 			src/map/checking_map.c				\
+			src/map/get_maps.c 						\
 
 GAME =		src/game/init_play.c				\
 			src/game/tower_set.c				\
@@ -71,7 +73,7 @@ SRCS	= 	src/main.c 							\
 OBJS	= $(SRCS:.c=.o)
 
 CFLAGS = -I ./include/
-CFLAGS += -Wall -Wextra
+CFLAGS += -Wall -Wextra -Wno-deprecated
 
 all: $(NAME)
 

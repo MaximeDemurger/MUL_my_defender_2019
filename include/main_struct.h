@@ -25,6 +25,7 @@ typedef struct game_s {
     struct enemy_s *enemy;
     struct path_s *path;
     struct hud_s *hud;
+    struct all_maps *all_maps;
 }game_t;
 
 typedef struct utils {

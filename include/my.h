@@ -16,6 +16,7 @@
 #include <SFML/System/Types.h>
 #include <SFML/Audio.h>
 #include <stdbool.h>
+#include <dirent.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include "play_struct.h"
@@ -45,13 +46,14 @@ void destroy_menu(strtmenu_t *, pausemenu_t *);
 
 /* MY LIB*/
 int my_atoi(char const *stack);
-void my_putstr(char const *);
-void my_putchar(char);
+int my_putstr(char const *);
+int my_putchar(char);
 char *convert_to_string(int);
 int my_strlen(char const *str); 
 char *my_revstr(char *);
 char *my_strdup(char const *str);
 char *get_next_line(int fd);
+char *concat(char *, char *);
 
 /* MAIN GAME */
 int open_window(utils_t *, game_t *, char **av);
@@ -66,6 +68,7 @@ void printing_map(char **tab, utils_t *utils);
 char **normal_map(void);
 int checking_map(char const *str);
 int print_basement(char **tab, utils_t *utils, map_t *map);
+int get_maps(all_map_t *, char const *);
 
 /* GAME */
 int get_pos_case(utils_t *utils, char **map);
