@@ -67,15 +67,15 @@ void put_tower2(game_t *game, sfVector2f mouse)
 void put_tower1(game_t *game, sfVector2f pos, sfVector2f mouse)
 {
 
-    if (game->utils->click_on_tower == 0) {
+    if (game->utils->click_on_tower1 == 0) {
         sfSprite_setPosition(game->play->tower1, pos);
         sfRenderWindow_drawSprite(game->utils->window, game->play->tower1,
                                   NULL);
-    } if (game->utils->click_on_tower == 1) {
+    } if (game->utils->click_on_tower1 == 1) {
         sfSprite_setPosition(game->play->select_tow, mouse);
         sfRenderWindow_drawSprite(game->utils->window, game->play->select_tow,
                                   NULL);
-    } if (game->utils->click_on_tower == 2) {
+    } if (game->utils->click_on_tower1 == 2) {
         sfSprite_setPosition(game->play->select_tow, pos);
         sfRenderWindow_drawSprite(game->utils->window, game->play->select_tow,
                                                                         NULL);

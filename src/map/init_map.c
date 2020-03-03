@@ -7,6 +7,16 @@
 
 #include "map_struct.h"
 
+void set_texture_map(map_t *map)
+{
+    sfSprite_setTexture(map->inventory, map->inventory_text, sfTrue);
+    sfSprite_setTexture(map->grass, map->grass_text, sfTrue);
+    sfSprite_setTexture(map->soil, map->soil_text, sfTrue);
+    sfSprite_setTexture(map->tower_pos, map->tower_pos_text, sfTrue);
+    sfSprite_setTexture(map->rock, map->rock_text, sfTrue);
+    sfSprite_setTexture(map->basement, map->basement_text, sfTrue);
+}
+
 int init_map(map_t *map)
 {
     map->grass_text = sfTexture_createFromFile("image/grass.png", NULL);
@@ -25,11 +35,6 @@ int init_map(map_t *map)
     !map->inventory || !map->inventory_text || !map->rock_text ||
     !map->tower_pos_text || !map->soil_text || !map->grass_text)
         return 84;
-    sfSprite_setTexture(map->inventory, map->inventory_text, sfTrue);
-    sfSprite_setTexture(map->grass, map->grass_text, sfTrue);
-    sfSprite_setTexture(map->soil, map->soil_text, sfTrue);
-    sfSprite_setTexture(map->tower_pos, map->tower_pos_text, sfTrue);
-    sfSprite_setTexture(map->rock, map->rock_text, sfTrue);
-    sfSprite_setTexture(map->basement, map->basement_text, sfTrue);
+    set_texture_map(map);
     return 0;
 }

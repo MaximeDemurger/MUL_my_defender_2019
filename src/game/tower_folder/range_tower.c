@@ -41,7 +41,7 @@ void range_tower(game_t *game, sfVector2f set_tow)
         enemy_pos.y > tower_pos.y &&
         enemy_pos.y < tower_pos.y + 500) {
         set_rotation(game, set_tow);
-        //enemy_hit(game->enemy, 20);
+        // enemy_hit(game->enemy, 1);
     }
 }
 
@@ -54,7 +54,7 @@ void tower_onset(game_t *game, sfVector2f pos, sfVector2f set_tow)
     set_tow.y += 70;
     range.x -= 185;
     range.y -= 185;
-    if (game->utils->click_on_tower == 2) {
+    if (game->utils->click_on_tower1 == 2) {
         sfSprite_setOrigin(game->play->tower1, origin);
         range_tower(game, set_tow);
         sfSprite_setPosition(game->play->range, range);
