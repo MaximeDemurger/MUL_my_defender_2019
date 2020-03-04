@@ -55,10 +55,14 @@ typedef struct selection {
     sfTexture *back_text;
     sfSprite *back;
     sfFont *font;
-    sfText *map1;
-    sfText *map2;
-    sfText *map3;
-    sfText *map4;
+    sfTexture *map1_text;
+    sfSprite *map1;
+    sfTexture *map2_text;
+    sfSprite *map2;
+    sfTexture *map3_text;
+    sfSprite *map3;
+    sfTexture *map4_text;
+    sfSprite *map4;
 }selection_t;
 
 typedef struct death_menu {
