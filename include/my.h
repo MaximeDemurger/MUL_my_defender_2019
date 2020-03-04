@@ -41,6 +41,7 @@ void starting_menu(utils_t *, strtmenu_t *);
 void pause_menu(utils_t *, pausemenu_t *);
 int init_select(selection_t *);
 char *show_map_options(utils_t *, selection_t *, all_map_t *);
+void do_select_hoover(utils_t *);
 
 /* DESTROY */
 void destroy_game(game_t *);

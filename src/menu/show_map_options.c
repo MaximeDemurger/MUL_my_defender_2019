@@ -77,6 +77,7 @@ char *show_map_options(utils_t *utils, selection_t *select, all_map_t *maps)
             map = check_events(utils, maps);
         }
         sfRenderWindow_drawSprite(utils->window, select->back, NULL);
+        do_select_hoover(utils);
         sfRenderWindow_drawSprite(utils->window, select->map1, NULL);
         sfRenderWindow_drawSprite(utils->window, select->map2, NULL);
         sfRenderWindow_drawSprite(utils->window, select->map3, NULL);
