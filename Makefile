@@ -61,12 +61,19 @@ ENEMY =		src/enemy/create_enemy.c 			\
 HUD =		src/hud/init_hud.c 					\
 			src/hud/draw_hud.c 					\
 
+DESTROY =	src/destroy/destroy_allmaps.c 		\
+			src/destroy/destroy_game.c 			\
+			src/destroy/destroy_menu.c 			\
+			src/destroy/destroy_death.c 		\
+			src/destroy/destroy_path.c 			\
+			src/destroy/destroy_selection.c 	\
+			src/destroy/destroy_settings.c 		\
+
 SRCS	= 	src/main.c 							\
 			src/open_window.c 					\
 			src/capture_event.c 				\
 			src/event_tower.c					\
-			src/destroy/destroy_game.c 			\
-			src/destroy/destroy_menu.c 			\
+			$(DESTROY)							\
 			$(HUD)								\
 			$(ENEMY)							\
 			$(GAME) 							\

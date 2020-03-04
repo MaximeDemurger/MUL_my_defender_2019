@@ -45,6 +45,11 @@ char *show_map_options(utils_t *, selection_t *, all_map_t *);
 /* DESTROY */
 void destroy_game(game_t *);
 void destroy_menu(strtmenu_t *, pausemenu_t *);
+void destroy_settings(settings_t *);
+void destroy_select(selection_t *);
+void destroy_death(deathmenu_t *);
+void destroy_path(path_t *);
+void destroy_allmaps(all_map_t *);
 
 /* MY LIB*/
 int my_atoi(char const *stack);
