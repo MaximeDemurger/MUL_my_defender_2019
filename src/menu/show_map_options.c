@@ -9,7 +9,7 @@
 
 char *correct_map(all_map_t *maps, int num)
 {
-    int position = 1;
+    int position = 0;
     all_map_t *tmp = maps;
 
     while (position != num) {
@@ -66,23 +66,6 @@ char *check_events(utils_t *utils, all_map_t *maps)
     }
     return check_bis(utils, maps);
 }
-
-// void set_basics(selection_t *select)
-// {
-//     sfVector2f pos_map1 = {850, 400};
-//     sfVector2f pos_map2 = {850, 500};
-//     sfVector2f pos_map3 = {850, 600};
-//     sfVector2f pos_map4 = {850, 700};
-
-//     sfText_setPosition(select->map1, pos_map1);
-//     sfText_setString(select->map1, "MAP 1");
-//     sfText_setPosition(select->map2, pos_map2);
-//     sfText_setString(select->map2, "MAP 2");
-//     sfText_setPosition(select->map3, pos_map3);
-//     sfText_setString(select->map3, "MAP 3");
-//     sfText_setPosition(select->map4, pos_map4);
-//     sfText_setString(select->map4, "MAP 4");
-// }
 
 char *show_map_options(utils_t *utils, selection_t *select, all_map_t *maps)
 {
